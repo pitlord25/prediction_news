@@ -200,19 +200,7 @@ def get_betfair_events():
     url = 'https://ero.betfair.com/www/sports/exchange/readonly/v1/byevent?_ak=nzIFcwyWhrlwYMrh&currencyCode=GBP&eventIds=30186572&locale=en_GB&rollupLimit=10&rollupModel=STAKE&types=MARKET_STATE,EVENT,MARKET_DESCRIPTION'
     
     # Make a synchronous HTTP GET request
-    with httpx.Client() as client:
-        response = client.get(url, headers=betfair_headers)
-        content = response.text
-        print(content)
-    return
-    response.html.render()
-    
-    content = response.html.html
-    
-    print(content)
-    # Check if the response is compressed
-    # return
-    print(response.data)
+    response = requests.get(url, headers=betfair_headers)
     
     data = response.json()
     events_ids = [event["marketId"] for event in data["eventTypes"][0]["eventNodes"][0]["marketNodes"]]
@@ -234,6 +222,8 @@ def get_betfair_events():
             } for contract in data["eventTypes"][0]["eventNodes"][0]["marketNodes"][0]["runners"]
             if "lastPriceTraded" in contract["state"].keys()]
         output.append(temp)
+    
+    print(output)
 
     db_manager.insert_document("betfair_collection", {
         "timestamp" : datetime.datetime.now(),
@@ -402,10 +392,10 @@ class ScrapingThread(threading.Thread):
             except Exception as e:
                 print("fairplay failed", e)
                 
-            # try:
-            #     get_betfair_events()
-            # except Exception as e:
-            #     print("betfair failed", e)
+            try:
+                get_betfair_events()
+            except Exception as e:
+                print("betfair failed", e)
                 
             try:
                 get_smarkets_data()

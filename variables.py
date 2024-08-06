@@ -140,7 +140,8 @@ smarkets_headers = {
 betfair_headers = {
     "accept-language":"en-US,en;q=0.9",
     "cache-control":"max-age=0",
-    "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+    # "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+    "Accept":"*/*",
     "Accept-Encoding":"gzip, deflate, br, zstd",
     "priority":"u=0, i",
     "sec-ch-ua":'"Not)A;Brand";v="99", "Google Chrome";v="127", "Chromium";v="127"',

@@ -1,0 +1,159 @@
+{
+    "currencyCode": "GBP",
+    "eventTypes": [
+        {
+            "eventTypeId": 2378961,
+            "eventNodes": [
+                {
+                    "eventId": 30186572,
+                    "event": {
+                        "eventName": "USA - Presidential Election 2024",
+                        "countryCode": "US",
+                        "timezone": "Europe/London",
+                        "openDate": "2024-11-05T11:00:00.000Z"
+                    },
+                    "marketNodes": [
+                        {
+                            "marketId": "1.226054697",
+                            "isMarketDataDelayed": true,
+                            "state": {
+                                "betDelay": 0,
+                                "bspReconciled": false,
+                                "complete": true,
+                                "inplay": false,
+                                "numberOfWinners": 1,
+                                "numberOfRunners": 2,
+                                "numberOfActiveRunners": 2,
+                                "lastMatchTime": "2024-08-06T13:25:29.615Z",
+                                "totalMatched": 46462.59925344263,
+                                "totalAvailable": 3871.3228516958998,
+                                "crossMatching": true,
+                                "runnersVoidable": false,
+                                "version": 6013568102,
+                                "status": "OPEN"
+                            },
+                            "description": {
+                                "persistenceEnabled": true,
+                                "bspMarket": false,
+                                "marketName": "Will Election Winner lose Popular Vote?",
+                                "marketTime": "2024-11-05T11:00:10.000Z",
+                                "suspendTime": "2024-11-05T11:00:10.000Z",
+                                "turnInPlayEnabled": true,
+                                "marketType": "NONSPORT",
+                                "priceLadderDescription": {
+                                    "type": "CLASSIC"
+                                },
+                                "bettingType": "ODDS"
+                            },
+                            "licence": {
+                                "wallet": "UK wallet",
+                                "rules": "<br><b>MARKET INFORMATION</b><br><br>For further information please see <a href=http://content.betfair.com/aboutus/content.asp?sWhichKey=Rules%20and%20Regulations#undefined.do style=color:0163ad; text-decoration: underline; target=_blank>Rules & Regs</a>.<br><br>Will the candidate that wins the 2024 US Presidential Election lose the popular vote?<br><br>This market will be <b>turned in-play</b> at the stated time on the day of the election. Thereafter the market will not be actively managed. Customers are entirely responsible for their bets at all times.<br><br>This market will be settled upon popular vote percentage figures as published by CNN.<br><br>The winner of the 2024 US Presidential Election will be settled according to the candidate that has the most projected Electoral College votes won at the 2024 presidential election. In the event that no Presidential candidate receives a majority of the projected Electoral College votes, this market will be settled on the person chosen as President in accordance with the procedures set out by the Twelfth Amendment to the United States Constitution.<b></b><br><br>This market will be settled once both the projected winner is announced by the Associated Press and the losing candidate concedes. If the losing candidate does not concede, or if there is any uncertainty around the result (for instance, caused by recounts and/or potential legal challenges), then the market will be settled on the winner decided by Congress, on the date on which the Electoral College votes are counted in a joint session of Congress.<b></b><br><br>This market will be void if an election does not take place in 2024. If more than one election takes place in 2024, then this market will apply to the first election that is held.<br><br>Once voting (whether postal, electronic or at the ballot box) begins in the year 2024 for the US Presidential Election 2024, the election will be deemed to have taken place for the purposes of this market. We will then settle the market as per our rules regardless of whether the election process is fully completed in 2024 or beyond.<br><br>If there is any material change to the established role or any ambiguity as to who occupies the position, then Betfair may determine, using its reasonable discretion, how to settle the market based on all the information available to it at the relevant time. Betfair reserves the right to wait for further official announcements before the market is settled.<br><br>Betfair expressly reserves the right to suspend and/or void any and all bets on this market at any time if Betfair is not satisfied (in its absolute discretion) with the certainty of the outcome.<br><br><br><br><br><br>Customers should be aware that:<b><br><br><li>Transmissions described as “live” by some broadcasters may actually be delayed.</li><br><li>The extent of any such delay may vary, depending on the set-up through which they are receiving pictures or data.",
+                                "rulesHasDate": false
+                            },
+                            "rates": {
+                                "marketBaseRate": 5.0,
+                                "discountAllowed": true
+                            },
+                            "runners": [
+                                {
+                                    "selectionId": 1108298,
+                                    "handicap": 0.0,
+                                    "description": {
+                                        "runnerName": "Yes",
+                                        "metadata": {
+                                            "runnerId": "1108298"
+                                        }
+                                    },
+                                    "state": {
+                                        "sortPriority": 1,
+                                        "lastPriceTraded": 2.58,
+                                        "totalMatched": 0.0,
+                                        "status": "ACTIVE"
+                                    },
+                                    "exchange": {
+                                        "availableToBack": [
+                                            {
+                                                "price": 2.56,
+                                                "size": 28.39
+                                            },
+                                            {
+                                                "price": 2.54,
+                                                "size": 13.91
+                                            },
+                                            {
+                                                "price": 2.52,
+                                                "size": 135.97
+                                            }
+                                        ],
+                                        "availableToLay": [
+                                            {
+                                                "price": 2.6,
+                                                "size": 20.0
+                                            },
+                                            {
+                                                "price": 2.66,
+                                                "size": 60.22
+                                            },
+                                            {
+                                                "price": 2.68,
+                                                "size": 146.33
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "selectionId": 1108299,
+                                    "handicap": 0.0,
+                                    "description": {
+                                        "runnerName": "No",
+                                        "metadata": {
+                                            "runnerId": "1108299"
+                                        }
+                                    },
+                                    "state": {
+                                        "sortPriority": 2,
+                                        "lastPriceTraded": 1.63,
+                                        "totalMatched": 0.0,
+                                        "status": "ACTIVE"
+                                    },
+                                    "exchange": {
+                                        "availableToBack": [
+                                            {
+                                                "price": 1.62,
+                                                "size": 32.1
+                                            },
+                                            {
+                                                "price": 1.6,
+                                                "size": 336.66
+                                            },
+                                            {
+                                                "price": 1.59,
+                                                "size": 16.61
+                                            }
+                                        ],
+                                        "availableToLay": [
+                                            {
+                                                "price": 1.65,
+                                                "size": 86.53
+                                            },
+                                            {
+                                                "price": 1.66,
+                                                "size": 187.47
+                                            },
+                                            {
+                                                "price": 1.67,
+                                                "size": 141.1
+                                            }
+                                        ]
+                                    }
+                                }
+                            ],
+                            "isMarketDataVirtual": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "indicative": false
+}
