@@ -1,0 +1,4 @@
+.env
+__MACOSX
+__pycache__
+.venv

@@ -1,0 +1,1853 @@
+[
+    {
+        "title": "Election Winner",
+        "contracts": [
+            {
+                "contractName": "Donald Trump",
+                "lastTradePrice": 62.5
+            },
+            {
+                "contractName": "Joe Biden",
+                "lastTradePrice": 16.7
+            },
+            {
+                "contractName": "Kamala Harris",
+                "lastTradePrice": 9.1
+            },
+            {
+                "contractName": "Gavin Newsom",
+                "lastTradePrice": 2.9
+            },
+            {
+                "contractName": "Michelle Obama",
+                "lastTradePrice": 3.3
+            },
+            {
+                "contractName": "Gretchen Whitmer",
+                "lastTradePrice": 2.0
+            },
+            {
+                "contractName": "Robert F.Kennedy Jr",
+                "lastTradePrice": 1.1
+            },
+            {
+                "contractName": "Hillary Clinton",
+                "lastTradePrice": 0.9
+            },
+            {
+                "contractName": "Nikki Haley",
+                "lastTradePrice": 0.5
+            },
+            {
+                "contractName": "Josh Shapiro",
+                "lastTradePrice": 0.3
+            },
+            {
+                "contractName": "J.B. Pritzker",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Pete Buttigieg",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Jamie Dimon",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Ron DeSantis",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Andy Beshear",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Mike Pence",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Tom Cotton",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Donald Trump Jr.",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Ted Cruz",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Alexandria Ocasio-Cortez",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Tucker Carlson",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Bernie Sanders",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Ivanka Trump",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Beto O'Rourke",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Paul Ryan",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Candace Owens",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Rashida Tlaib",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Chris Christie",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Ayanna Pressley",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Mike Pompeo",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Josh Hawley",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Dan Crenshaw",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Nina Turner",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Andrew Cuomo",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Marco Rubio",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Elizabeth Warren",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Eric Holder",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Oprah Winfrey",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Deval Patrick",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Tulsi Gabbard",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Eric Swalwell",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Eric Garcetti",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jay Inslee",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Cory Booker",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Julian Castro",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Michael Bloomberg",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jeb Bush",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Mitch McConnell",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Mitt Romney",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Lindsey Graham",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Rand Paul",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jo Jorgensen",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Dwayne Johnson",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Andrew Yang",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "John Kasich",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Karen Bass",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Susan Collins",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Ben Carson",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kristi Noem",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Rick Scott",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Sarah Huckabee Sanders",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Rob Portman",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Matt Gaetz",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Condoleezza Rice",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Meghan Markle",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Al Gore",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "John Kerry",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Caitlyn Jenner",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Liz Cheney",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jon Tester",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Sherrod Brown",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Joe Manchin",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Ron Johnson",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Christopher Sununu",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Greg Abbott",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Glenn Youngkin",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Amy Klobuchar",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Susan Rice",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Eric Adams",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Tim Ryan",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Herschel Walker",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "John Fetterman",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Josh Mandel",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Winsome Sears",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kevin McCarthy",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Martin Heinrich",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Mitch Landrieu",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jared Polis",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Mark Cuban",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Ben Sasse",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Tim Scott",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Larry Hogan",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "JD Vance",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Cori Bush",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jason Kander",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Dan Pfeiffer",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Tim Walz",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Tony Evers",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Gary Peters",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jamie Raskin",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kari Lake",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Mark Kelly",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Blake Masters",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Roy Cooper",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Brian Kemp",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Asa Hutchinson",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kanye West",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "John Bolton",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Corey Stapleton",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Hakeem Jeffries",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Vivek Ramaswamy",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Marianne Williamson",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Chris Murphy",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Michael Flynn",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Doug Burgum",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Dean Phillips",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Cornel West",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Nancy Mace",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Elise Stefanik",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Lee Zeldin",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Rudy Giuliani",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Eric Trump",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Wes Moore",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kyrsten Sinema",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Raphael Warnock",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Antony Blinken",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Gina Raimondo",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Hunter Biden",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jill Biden",
+                "lastTradePrice": 0.1
+            }
+        ]
+    },
+    {
+        "title": "Democratic Nominee",
+        "contracts": [
+            {
+                "contractName": "Joe Biden",
+                "lastTradePrice": 63.3
+            },
+            {
+                "contractName": "Kamala Harris",
+                "lastTradePrice": 20.0
+            },
+            {
+                "contractName": "Gavin Newsom",
+                "lastTradePrice": 5.0
+            },
+            {
+                "contractName": "Michelle Obama",
+                "lastTradePrice": 4.5
+            },
+            {
+                "contractName": "Gretchen Whitmer",
+                "lastTradePrice": 2.8
+            },
+            {
+                "contractName": "Hillary Clinton",
+                "lastTradePrice": 2.4
+            },
+            {
+                "contractName": "Josh Shapiro",
+                "lastTradePrice": 0.3
+            },
+            {
+                "contractName": "J.B. Pritzker",
+                "lastTradePrice": 0.3
+            },
+            {
+                "contractName": "Robert F.Kennedy Jr",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Raphael Warnock",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Elizabeth Warren",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Pete Buttigieg",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Cory Booker",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Andy Beshear",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Wes Moore",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Roy Cooper",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Amy Klobuchar",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Andrew Cuomo",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Andrew Yang",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Ayanna Pressley",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Eric Garcetti",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Michael Bloomberg",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Nina Turner",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Rashida Tlaib",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Bernie Sanders",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Alexandria Ocasio-Cortez",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Katie Porter",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "John Ossoff",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Bill Gates",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Tulsi Gabbard",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Tammy Duckworth",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Beto O Rourke",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jamaal Bowman",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Susan Rice",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Eric Adams",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jared Polis",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Dwayne Johnson",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Tim Ryan",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Phil Murphy",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jamie Raskin",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Marianne Williamson",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Chris Murphy",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Joe Manchin",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Dean Phillips",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Hakeem Jeffries",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Val Demings",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Michelle Lujan Grisham",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kathy Hochul",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jamie Dimon",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jill Biden",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Hunter Biden",
+                "lastTradePrice": 0.1
+            }
+        ]
+    },
+    {
+        "title": "Republican Nominee",
+        "contracts": [
+            {
+                "contractName": "Donald Trump",
+                "lastTradePrice": 98.0
+            },
+            {
+                "contractName": "Nikki Haley",
+                "lastTradePrice": 0.5
+            },
+            {
+                "contractName": "Ben Carson",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Ron DeSantis",
+                "lastTradePrice": 0.5
+            },
+            {
+                "contractName": "Vivek Ramaswamy",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Tucker Carlson",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Donald Trump Jr.",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kristi Noem",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Mike Pence",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Ivanka Trump",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Eric Trump",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Tom Cotton",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Paul Ryan",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Marco Rubio",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Ted Cruz",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Mike Pompeo",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kanye West",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Mitt Romney",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Dan Crenshaw",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Ben Sasse",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Josh Hawley",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jared Kushner",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jeb Bush",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "John Kasich",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jim Jordan",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Orrin Hatch",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Tom Brady",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Joni Ernst",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Lisa Murkowski",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Rand Paul",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Evan McMullin",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Susan Collins",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "James Mattis",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Devin Nunes",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Lindsay Graham",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Chris Christie",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Mitch McConnell",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Rick Perry",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Bobby Jindal",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Steve Bannon",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Ben Shapiro",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Sarah Huckabee Sanders",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Rob Portman",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Matt Gaetz",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Condoleezza Rice",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Rick Scott",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Tim Scott",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Liz Cheney",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Greg Abbott",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Winsome Sears",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Larry Hogan",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Glenn Youngkin",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Charles Ernest Grassley",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Candace Owens",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Asa Hutchinson",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Brian Kemp",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "John Bolton",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Corey Stapleton",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Christopher Sununu",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Larry Elder",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Doug Burgum",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Robert F Kennedy Jr",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Michael Flynn",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Elise Stefanik",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Lee Zeldin",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jamie Dimon",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "J.D. Vance",
+                "lastTradePrice": 0.1
+            }
+        ]
+    },
+    {
+        "title": "Popular Vote Winner",
+        "contracts": [
+            {
+                "contractName": "Joe Biden",
+                "lastTradePrice": 30.8
+            },
+            {
+                "contractName": "Donald Trump",
+                "lastTradePrice": 35.5
+            },
+            {
+                "contractName": "Michelle Obama",
+                "lastTradePrice": 2.6
+            },
+            {
+                "contractName": "Kamala Harris",
+                "lastTradePrice": 14.3
+            },
+            {
+                "contractName": "Robert F. Kennedy Jr",
+                "lastTradePrice": 1.5
+            },
+            {
+                "contractName": "Gavin Newsom",
+                "lastTradePrice": 2.2
+            },
+            {
+                "contractName": "Gretchen Whitmer",
+                "lastTradePrice": 2.0
+            },
+            {
+                "contractName": "Nikki Haley",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Elizabeth Warren",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Ron DeSantis",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Hillary Clinton",
+                "lastTradePrice": 1.5
+            },
+            {
+                "contractName": "J.B. Pritzker",
+                "lastTradePrice": 0.3
+            },
+            {
+                "contractName": "Vivek Ramaswamy",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Pete Buttigieg",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Amy Klobuchar",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Raphael Warnock",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Tucker Carlson",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Tim Scott",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Mike Pence",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Alexandria Ocasio-Cortez",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Donald Trump Jr.",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Ivanka Trump",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Eric Trump",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Beto O Rourke",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Paul Ryan",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Eric Holder",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Dan Crenshaw",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Bernie Sanders",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Tom Cotton",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Marco Rubio",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Mike Pompeo",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Deval Patrick",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Tulsi Gabbard",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Eric Garcetti",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jay Inslee",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Cory Booker",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Andrew Yang",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Julian Castro",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kanye West",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Ted Cruz",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Tammy Duckworth",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Mitt Romney",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Stacey Abrams",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jon Ossoff",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Andrew Cuomo",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jeb Bush",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Susan Collins",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Rand Paul",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Larry Hogan",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Liz Cheney",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Michael Bloomberg",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Joe Manchin",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Glenn Youngkin",
+                "lastTradePrice": 0.1
+            }
+        ]
+    },
+    {
+        "title": "Gender of Election Winner",
+        "contracts": [
+            {
+                "contractName": "Male",
+                "lastTradePrice": 83.3
+            },
+            {
+                "contractName": "Female",
+                "lastTradePrice": 16.7
+            }
+        ]
+    },
+    {
+        "title": "Winning Party",
+        "contracts": [
+            {
+                "contractName": "Democratic Party",
+                "lastTradePrice": 37.3
+            },
+            {
+                "contractName": "Republican Party",
+                "lastTradePrice": 62.1
+            },
+            {
+                "contractName": "Any Other",
+                "lastTradePrice": 1.5
+            }
+        ]
+    },
+    {
+        "title": "Party of Popular Vote Winner",
+        "contracts": [
+            {
+                "contractName": "Democratic Party",
+                "lastTradePrice": 63.7
+            },
+            {
+                "contractName": "Republican Party",
+                "lastTradePrice": 36.0
+            },
+            {
+                "contractName": "Any Other",
+                "lastTradePrice": 0.5
+            }
+        ]
+    },
+    {
+        "title": "Democratic Vice President Nominee",
+        "contracts": [
+            {
+                "contractName": "Kamala Harris",
+                "lastTradePrice": 61.3
+            },
+            {
+                "contractName": "Gavin Newsom",
+                "lastTradePrice": 6.5
+            },
+            {
+                "contractName": "Susan Rice",
+                "lastTradePrice": 1.0
+            },
+            {
+                "contractName": "Michelle Obama",
+                "lastTradePrice": 1.8
+            },
+            {
+                "contractName": "Pete Buttigieg",
+                "lastTradePrice": 5.0
+            },
+            {
+                "contractName": "Hillary Clinton",
+                "lastTradePrice": 5.9
+            },
+            {
+                "contractName": "Gretchen Whitmer",
+                "lastTradePrice": 2.1
+            },
+            {
+                "contractName": "Amy Klobuchar",
+                "lastTradePrice": 1.2
+            },
+            {
+                "contractName": "Elizabeth Warren",
+                "lastTradePrice": 0.3
+            },
+            {
+                "contractName": "Tammy Duckworth",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Joe Biden",
+                "lastTradePrice": 0.5
+            },
+            {
+                "contractName": "Raphael Warnock",
+                "lastTradePrice": 1.8
+            },
+            {
+                "contractName": "Alexandria Ocasio-Cortez",
+                "lastTradePrice": 0.5
+            },
+            {
+                "contractName": "John Ossoff",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Tulsi Gabbard",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Stacey Abrams",
+                "lastTradePrice": 0.3
+            },
+            {
+                "contractName": "Bernie Sanders",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Andrew Yang",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Beto O Rourke",
+                "lastTradePrice": 0.9
+            },
+            {
+                "contractName": "Andrew Cuomo",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Cory Booker",
+                "lastTradePrice": 1.1
+            },
+            {
+                "contractName": "Eric Garcetti",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Ayanna Pressley",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Bill Gates",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Eric Adams",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Katie Porter",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Michael Bloomberg",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Nina Turner",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Rashida Tlaib",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Jamaal Bowman",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Hakeem Jeffries",
+                "lastTradePrice": 0.4
+            },
+            {
+                "contractName": "Wes Moore",
+                "lastTradePrice": 1.4
+            },
+            {
+                "contractName": "Val Demings",
+                "lastTradePrice": 0.3
+            },
+            {
+                "contractName": "Dwayne Johnson",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Andy Beshear",
+                "lastTradePrice": 4.5
+            },
+            {
+                "contractName": "Roy Cooper",
+                "lastTradePrice": 4.8
+            },
+            {
+                "contractName": "Josh Shapiro",
+                "lastTradePrice": 10.2
+            },
+            {
+                "contractName": "Michelle Lujan Grisham",
+                "lastTradePrice": 0.3
+            },
+            {
+                "contractName": "Tim Walz",
+                "lastTradePrice": 1.1
+            },
+            {
+                "contractName": "Jay Robert Pritzker",
+                "lastTradePrice": 1.1
+            }
+        ]
+    },
+    {
+        "title": "Republican Vice President Nominee",
+        "contracts": [
+            {
+                "contractName": "J.D. Vance",
+                "lastTradePrice": 27.4
+            },
+            {
+                "contractName": "Doug Burgum",
+                "lastTradePrice": 28.6
+            },
+            {
+                "contractName": "Marco Rubio",
+                "lastTradePrice": 12.2
+            },
+            {
+                "contractName": "Ben Carson",
+                "lastTradePrice": 8.7
+            },
+            {
+                "contractName": "Glenn Youngkin",
+                "lastTradePrice": 5.0
+            },
+            {
+                "contractName": "Tim Scott",
+                "lastTradePrice": 4.0
+            },
+            {
+                "contractName": "Tulsi Gabbard",
+                "lastTradePrice": 3.6
+            },
+            {
+                "contractName": "Vivek Ramaswamy",
+                "lastTradePrice": 2.8
+            },
+            {
+                "contractName": "Elise Stefanik",
+                "lastTradePrice": 3.6
+            },
+            {
+                "contractName": "Michael Flynn",
+                "lastTradePrice": 3.1
+            },
+            {
+                "contractName": "Byron Donalds",
+                "lastTradePrice": 1.8
+            },
+            {
+                "contractName": "Nikki Haley",
+                "lastTradePrice": 2.5
+            },
+            {
+                "contractName": "Sarah Huckabee Sanders",
+                "lastTradePrice": 1.3
+            },
+            {
+                "contractName": "Ron DeSantis",
+                "lastTradePrice": 0.3
+            },
+            {
+                "contractName": "Mike Pence",
+                "lastTradePrice": 1.1
+            },
+            {
+                "contractName": "Tom Cotton",
+                "lastTradePrice": 0.9
+            },
+            {
+                "contractName": "Mike Pompeo",
+                "lastTradePrice": 0.4
+            },
+            {
+                "contractName": "Ivanka Trump",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Robert F.Kennedy Jr",
+                "lastTradePrice": 0.5
+            },
+            {
+                "contractName": "Lee Zeldin",
+                "lastTradePrice": 0.6
+            },
+            {
+                "contractName": "Tucker Carlson",
+                "lastTradePrice": 0.6
+            },
+            {
+                "contractName": "Donald Trump Jr.",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kristi Noem",
+                "lastTradePrice": 0.5
+            },
+            {
+                "contractName": "Devin Nunes",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Marjorie Taylor Greene",
+                "lastTradePrice": 0.3
+            },
+            {
+                "contractName": "Robert C. O'Brien",
+                "lastTradePrice": 0.3
+            },
+            {
+                "contractName": "John Ratcliffe",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Wesley Hunt",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Bill Hagerty",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Jim Jordan",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kari Lake",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Marsha Blackburn",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Greg Abbott",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kim Reynolds",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Nancy Mace",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Eric Trump",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Donald Trump",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Ted Cruz",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Josh Hawley",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Ben Sasse",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Rick Scott",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Mitt Romney",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Dan Crenshaw",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Paul Ryan",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kanye West",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Chris Christie",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Lindsay Graham",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Larry Hogan",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Herschel Walker",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Mehmet Oz",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Brian Kemp",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Chris Sununu",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Joni Ernst",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Henry McMaster",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Matt Gaetz",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Richard Grenell",
+                "lastTradePrice": 0.3
+            },
+            {
+                "contractName": "Tommy Tuberville",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Douglas Macgregor",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Candace Owens",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Larry Elder",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Francis Suarez",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Lara Trump",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Katie Britt",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Rand Paul",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Andrew Cuomo",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kash Patel",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Burgess Owens",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Christopher C. Miller",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Dan Scavino",
+                "lastTradePrice": 0.1
+            }
+        ]
+    },
+    {
+        "title": "Nominee Forecast",
+        "contracts": [
+            {
+                "contractName": "Joe Biden/Donald Trump",
+                "lastTradePrice": 64.1
+            },
+            {
+                "contractName": "Kamala Harris/Donald Trump",
+                "lastTradePrice": 22.2
+            },
+            {
+                "contractName": "Michelle Obama/Donald Trump",
+                "lastTradePrice": 4.0
+            },
+            {
+                "contractName": "Gavin Newsom/Donald Trump",
+                "lastTradePrice": 3.3
+            },
+            {
+                "contractName": "Gretchen Whitmer/Donald Trump",
+                "lastTradePrice": 1.8
+            },
+            {
+                "contractName": "Hillary Clinton/Donald Trump",
+                "lastTradePrice": 1.7
+            },
+            {
+                "contractName": "Joe Biden/Nikki Haley",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Gavin Newsom/Nikki Haley",
+                "lastTradePrice": 0.3
+            },
+            {
+                "contractName": "Joe Biden/Ron DeSantis",
+                "lastTradePrice": 0.6
+            },
+            {
+                "contractName": "Gavin Newsom/Ron DeSantis",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kamala Harris/Nikki Haley",
+                "lastTradePrice": 0.3
+            },
+            {
+                "contractName": "Michelle Obama/Nikki Haley",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Joe Biden/Vivek Ramaswamy",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Gavin Newsom/Vivek Ramaswamy",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kamala Harris/Ron DeSantis",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Michelle Obama/Vivek Ramaswamy",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Joe Biden/Glenn Youngkin",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kamala Harris/Vivek Ramaswamy",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Michelle Obama/Ron DeSantis",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Joe Biden/Tim Scott",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Joe Biden/Mike Pence",
+                "lastTradePrice": 0.3
+            },
+            {
+                "contractName": "Gavin Newsom/Tim Scott",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Gavin Newsom/Glenn Youngkin",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Gavin Newsom/Mike Pence",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kamala Harris/Tim Scott",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kamala Harris/Glenn Youngkin",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kamala Harris/Mike Pence",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Michelle Obama/Tim Scott",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Dean Phillips/Donald Trump",
+                "lastTradePrice": 0.3
+            },
+            {
+                "contractName": "Dean Phillips/Nikki Haley",
+                "lastTradePrice": 0.1
+            }
+        ]
+    },
+    {
+        "title": "Will Election Winner lose Popular Vote?",
+        "contracts": [
+            {
+                "contractName": "Yes",
+                "lastTradePrice": 39.4
+            },
+            {
+                "contractName": "No",
+                "lastTradePrice": 60.6
+            }
+        ]
+    }
+]

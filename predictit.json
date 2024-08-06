@@ -1,0 +1,129 @@
+[
+    {
+        "title": "Democratic vice presidential nominee?",
+        "contracts": [
+            {
+                "contractName": "Josh Shapiro",
+                "lastTradePrice": 64.0
+            },
+            {
+                "contractName": "Tim Walz",
+                "lastTradePrice": 25.0
+            }
+        ]
+    },
+    {
+        "title": "Which party wins the presidency in 2024?",
+        "contracts": [
+            {
+                "contractName": "Democratic",
+                "lastTradePrice": 55.0
+            },
+            {
+                "contractName": "Republican",
+                "lastTradePrice": 49.0
+            }
+        ]
+    },
+    {
+        "title": "Democratic 2024 presidential nominee?",
+        "contracts": [
+            {
+                "contractName": "Kamala Harris",
+                "lastTradePrice": 97.0
+            },
+            {
+                "contractName": "Michelle Obama",
+                "lastTradePrice": 2.0
+            }
+        ]
+    },
+    {
+        "title": "2024 presidential election winner?",
+        "contracts": [
+            {
+                "contractName": "Kamala Harris",
+                "lastTradePrice": 54.0
+            },
+            {
+                "contractName": "Donald Trump",
+                "lastTradePrice": 49.0
+            }
+        ]
+    },
+    {
+        "title": "Woman president elected in 2024?",
+        "contracts": [
+            {
+                "contractName": "Yes",
+                "lastTradePrice": 54.0
+            }
+        ]
+    },
+    {
+        "title": "Which party will win WI in 2024?",
+        "contracts": [
+            {
+                "contractName": "Democratic",
+                "lastTradePrice": 56.0
+            },
+            {
+                "contractName": "Republican",
+                "lastTradePrice": 45.0
+            }
+        ]
+    },
+    {
+        "title": "Electoral College margin in 2024?",
+        "contracts": [
+            {
+                "contractName": "Dems by 65 - 104",
+                "lastTradePrice": 17.0
+            },
+            {
+                "contractName": "Dems by 35 - 64",
+                "lastTradePrice": 13.0
+            }
+        ]
+    },
+    {
+        "title": "Will Biden resign during his first term?",
+        "contracts": [
+            {
+                "contractName": "Yes",
+                "lastTradePrice": 16.0
+            }
+        ]
+    },
+    {
+        "title": "Which party will win GA in 2024?",
+        "contracts": [
+            {
+                "contractName": "Republican",
+                "lastTradePrice": 57.0
+            },
+            {
+                "contractName": "Democratic",
+                "lastTradePrice": 47.0
+            }
+        ]
+    },
+    {
+        "title": "Harris the 47th US president?",
+        "contracts": [
+            {
+                "contractName": "Yes",
+                "lastTradePrice": 56.0
+            }
+        ]
+    },
+    {
+        "title": "Harris on 2024 Democratic ticket?",
+        "contracts": [
+            {
+                "contractName": "Yes",
+                "lastTradePrice": 98.0
+            }
+        ]
+    }
+]

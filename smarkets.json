@@ -1,0 +1,92 @@
+[
+    {
+        "contracts": [
+            {
+                "id": "39968373",
+                "lastTradePrice": 0.1,
+                "contractName": "Michelle Obama"
+            },
+            {
+                "id": "39968370",
+                "lastTradePrice": 99.0,
+                "contractName": "Kamala Harris"
+            },
+            {
+                "id": "39968374",
+                "lastTradePrice": 0.0,
+                "contractName": "Pete Buttigieg"
+            },
+            {
+                "id": "39968375",
+                "lastTradePrice": 0.1,
+                "contractName": "Gavin Newsom"
+            },
+            {
+                "id": "39968369",
+                "lastTradePrice": 0.0,
+                "contractName": "Joe Biden"
+            }
+        ],
+        "title": "Who will be the Democratic candidate for the 2024 US presidential election? Other contracts added on request."
+    },
+    {
+        "contracts": [
+            {
+                "id": "39980277",
+                "lastTradePrice": 0.0,
+                "contractName": "Mike Pence"
+            },
+            {
+                "id": "44821945",
+                "lastTradePrice": 0.3,
+                "contractName": "Ron DeSantis"
+            },
+            {
+                "id": "39980274",
+                "lastTradePrice": 100.0,
+                "contractName": "Donald Trump"
+            },
+            {
+                "id": "39980280",
+                "lastTradePrice": 0.1,
+                "contractName": "Nikki Haley"
+            },
+            {
+                "id": "39980284",
+                "lastTradePrice": 0.0,
+                "contractName": "Mike Pompeo"
+            }
+        ],
+        "title": "Who will be the Republican candidate for the 2024 US presidential election? Other contracts added on request."
+    },
+    {
+        "contracts": [
+            {
+                "id": "40003160",
+                "lastTradePrice": 52.1,
+                "contractName": "Donald Trump"
+            },
+            {
+                "id": "40003170",
+                "lastTradePrice": 0.2,
+                "contractName": "Gavin Newsom"
+            },
+            {
+                "id": "40003163",
+                "lastTradePrice": 0.0,
+                "contractName": "Mike Pence"
+            },
+            {
+                "id": "40003174",
+                "lastTradePrice": 0.1,
+                "contractName": "Pete Buttigieg"
+            },
+            {
+                "id": "40003158",
+                "lastTradePrice": 0.1,
+                "contractName": "Joe Biden"
+            }
+        ],
+        "title": "Who will win the 2024 United States presidential election? Candidates added on request."
+    }
+]

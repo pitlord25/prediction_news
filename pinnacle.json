@@ -1,0 +1,15 @@
+[
+    {
+        "title": "2024 Presidential Election USA",
+        "contracts": [
+            {
+                "contractName": "Donald Trump",
+                "lastTradePrice": 55.6
+            },
+            {
+                "contractName": "Field (any other candidate)",
+                "lastTradePrice": 47.6
+            }
+        ]
+    }
+]

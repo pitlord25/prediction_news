@@ -1,0 +1,101 @@
+[
+    {
+        "title": "Winning Party - 2024 Presidential Election USA",
+        "contracts": [
+            {
+                "contractName": "Democratic",
+                "lastTradePrice": 40.2
+            },
+            {
+                "contractName": "Republican",
+                "lastTradePrice": 54.6
+            },
+            {
+                "contractName": "Any Other",
+                "lastTradePrice": 0
+            }
+        ]
+    },
+    {
+        "title": "US Presidental Election 2024 Winning Party Democrats",
+        "contracts": [
+            {
+                "contractName": "Democrats",
+                "lastTradePrice": 31.2
+            },
+            {
+                "contractName": "Not Democrats",
+                "lastTradePrice": 0
+            }
+        ]
+    },
+    {
+        "title": "Will Biden Drop out of Presidential Race?",
+        "contracts": [
+            {
+                "contractName": "Yes Drops Out",
+                "lastTradePrice": 16.7
+            },
+            {
+                "contractName": "No Drop Out",
+                "lastTradePrice": 0
+            }
+        ]
+    },
+    {
+        "title": "Will Joe Biden Complete his first term as President?",
+        "contracts": [
+            {
+                "contractName": "Completes first term",
+                "lastTradePrice": 33.3
+            },
+            {
+                "contractName": "Doesn't complete first term",
+                "lastTradePrice": 0
+            }
+        ]
+    },
+    {
+        "title": "2024 United States Presidential Election: Which political party will win?",
+        "contracts": [
+            {
+                "contractName": "Republicans",
+                "lastTradePrice": 50.0
+            },
+            {
+                "contractName": "Democrats",
+                "lastTradePrice": 52.0
+            },
+            {
+                "contractName": "Third Party",
+                "lastTradePrice": 28.6
+            }
+        ]
+    },
+    {
+        "title": "2024 USA Presidential Election Winner",
+        "contracts": [
+            {
+                "contractName": "Donald Trump",
+                "lastTradePrice": 54.3
+            },
+            {
+                "contractName": "Field (any other candidate)",
+                "lastTradePrice": 0
+            }
+        ]
+    },
+    {
+        "title": "Will Ukraine/Russia War end before 2025?",
+        "contracts": [
+            {
+                "contractName": "Yes War Ended",
+                "lastTradePrice": 0
+            },
+            {
+                "contractName": "No War Still Going",
+                "lastTradePrice": 0
+            }
+        ]
+    }
+]

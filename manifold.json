@@ -1,0 +1,976 @@
+[
+    {
+        "title": "Which party will win the 2024 US Presidential Election?",
+        "contracts": [
+            {
+                "contractName": "Democratic Party",
+                "lastTradePrice": 50.4
+            },
+            {
+                "contractName": "Republican Party",
+                "lastTradePrice": 49.5
+            },
+            {
+                "contractName": "Other",
+                "lastTradePrice": 0.1
+            }
+        ],
+        "totalValue": 1990630.7934483702
+    },
+    {
+        "title": "Who will win the 2024 US Presidential Election?",
+        "contracts": [
+            {
+                "contractName": "Joe Biden",
+                "lastTradePrice": 0.8
+            },
+            {
+                "contractName": "Donald Trump",
+                "lastTradePrice": 50.0
+            },
+            {
+                "contractName": "Ron DeSantis",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Nikki Haley",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Kamala Harris",
+                "lastTradePrice": 47.4
+            },
+            {
+                "contractName": "Vivek Ramaswamy",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Mike Pence",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Chris Christie",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Robert F. Kennedy Jr.",
+                "lastTradePrice": 0.6
+            },
+            {
+                "contractName": "Asa Hutchinson",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Tucker Carlson",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Ted Cruz",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Tim Scott",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Hillary Clinton",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Gavin Newsom",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Dean Phillips",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Elise Stefanik",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Kristi Noem",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Michelle Obama",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Gretchen Whitmer",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "JD Vance",
+                "lastTradePrice": 0.3
+            },
+            {
+                "contractName": "Other",
+                "lastTradePrice": 0.2
+            }
+        ],
+        "totalValue": 33903215.31608151
+    },
+    {
+        "title": "Who will win the 2024 Republican presidential nomination?",
+        "contracts": [
+            {
+                "contractName": "Donald Trump",
+                "lastTradePrice": 99.0
+            },
+            {
+                "contractName": "Ron DeSantis",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Nikki Haley",
+                "lastTradePrice": 0.9
+            },
+            {
+                "contractName": "Other",
+                "lastTradePrice": 0.0
+            }
+        ],
+        "totalValue": 230565.9289912298
+    },
+    {
+        "title": "Who will be the Democratic Party presidential nominee?",
+        "contracts": [
+            {
+                "contractName": "Joe Biden",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Kamala Harris",
+                "lastTradePrice": 98.8
+            },
+            {
+                "contractName": "Gretchen Whitmer",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Gavin Newsom",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Robert F. Kennedy Jr.",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Dean Phillips",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Michelle Obama",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Hillary Clinton",
+                "lastTradePrice": 0.3
+            },
+            {
+                "contractName": "Josh Shapiro",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "J. B. Pritzker",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Pete Buttigieg",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Andy Beshear ",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Joe Manchin",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Mark Cuban",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Other",
+                "lastTradePrice": 0.1
+            }
+        ],
+        "totalValue": 9292356.439677462
+    },
+    {
+        "title": "Who will win the New Hampshire Republican Presidential primary?",
+        "contracts": [
+            {
+                "contractName": "Donald Trump",
+                "lastTradePrice": 99.2
+            },
+            {
+                "contractName": "Nikki Haley",
+                "lastTradePrice": 0.7
+            },
+            {
+                "contractName": "Ron DeSantis",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Chris Christie",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Vivek Ramaswamy",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Tim Scott",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Mike Pence",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Doug Burgum",
+                "lastTradePrice": 0.0
+            }
+        ],
+        "totalValue": 47252.923139645136
+    },
+    {
+        "title": "Who will be the 2024 Republican nominee for VP? (Vice President)",
+        "contracts": [
+            {
+                "contractName": "Mike Pence",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Kari Lake (Senate Candidate in Arizona)",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Ron DeSantis (Florida Governor)",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Nikki Haley (Former SC Governor)",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Tim Scott (SC Senator )",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Vivek Ramaswamy (Entrepreneur)",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Elise Stefanik (NY Congresswoman)",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Sarah Huckabee Sanders (AR Governor)",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "[Invalid Answer]",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Joni Ernst",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Francis Suarez (Miami Mayor)",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Katie Britt (Alabama Senator)",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Brian Kemp",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Kristi Noem (SD Governor)",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Marjorie Taylor Greene",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Glenn Youngkin (Virginia Governor)",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Kim Reynolds",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Tulsi Gabbard (Former HI Congresswoman)",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "[Invalid Answer]",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Byron Donalds (Florida Congressman)",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Jim Jordan",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Andy Biggs",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Mike Johnson",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Donald Trump",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Marsha Blackburn",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Scott Perry",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Greg Abbott",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Lee Zeldin (Former NY Congressman)",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "RFK Jr.",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Tucker Carlson",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Tom Cotton",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Marco Rubio (Florida Senator)",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Mike Pompeo",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "J.D. Vance (Ohio Senator)",
+                "lastTradePrice": 99.0
+            },
+            {
+                "contractName": "Ben Carson (Former Trump HUD Secretary)",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "[Invalid Answer]",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Kanye",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Newt Gingrich",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Doug Burgum (ND Governor)",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "\"Gen.\" Michael Flynn",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Henry McMaster (SC Governor)",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Lindsey Graham",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Roger Marshall",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Rudy Giuliani",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Ivanka Trump",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Nancy Mace",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Wayne Lambright",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Austin Chen (Mad Scientist)",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Rick Santorum",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Rand Paul",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Rick Perry",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Cory Gardner",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Kelly Loeffler",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Martha McSally",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "John Ratcliffe",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Wesley Hunt",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Tudor Dixon",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Dan Crenshaw",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Paul Ryan",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Ben Sasse",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Chris Christie",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Josh Hawley",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "George Santos",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "[Invalid Answer]",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Richard Grenell (Fmr. Director of Natl. Intelligence)",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Lauren Boebert",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Matt Gaetz",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Devin Nunes",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Other",
+                "lastTradePrice": 0.1
+            }
+        ],
+        "totalValue": 6443065.831523624
+    },
+    {
+        "title": "Who will be the 2024 Democratic nominee for VP? (Vice President)",
+        "contracts": [
+            {
+                "contractName": "Kamala Harris",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Pete Buttigieg",
+                "lastTradePrice": 2.7
+            },
+            {
+                "contractName": "Beto O\u2019Rourke",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Raphael Warnock",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Michelle Obama",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Barack Obama",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Tim Kaine",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Joe Biden",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Josh Shapiro",
+                "lastTradePrice": 62.1
+            },
+            {
+                "contractName": "Gretchen Whitmer",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Gavin Newsom",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Bernie Sanders",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "J.B. Pritzker",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Elizabeth Warren",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Mark Kelly",
+                "lastTradePrice": 11.3
+            },
+            {
+                "contractName": "Andy Beshear",
+                "lastTradePrice": 4.5
+            },
+            {
+                "contractName": "Roy Cooper",
+                "lastTradePrice": 0.2
+            },
+            {
+                "contractName": "Nicole Shanahan",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Donald Trump",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Tim Walz",
+                "lastTradePrice": 17.8
+            },
+            {
+                "contractName": "Jon Tester",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Jared Polis",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Gina Raimondo",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Wes Moore",
+                "lastTradePrice": 0.0
+            },
+            {
+                "contractName": "Tammy Baldwin",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Mark Cuban",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Joe Manchin",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Mitt Romney",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "William McRaven",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Hillary Clinton",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Gary Peters",
+                "lastTradePrice": 0.1
+            },
+            {
+                "contractName": "Other",
+                "lastTradePrice": 0.1
+            }
+        ],
+        "totalValue": 5656216.851153073
+    },
+    {
+        "title": "Who would win the US Presidential Election, if they were the Democratic Party nominee in 2024?",
+        "contracts": [
+            {
+                "contractName": "Joe Biden",
+                "lastTradePrice": 37.3
+            },
+            {
+                "contractName": "Kamala Harris",
+                "lastTradePrice": 48.2
+            },
+            {
+                "contractName": "Gavin Newsom",
+                "lastTradePrice": 40.9
+            },
+            {
+                "contractName": "Gretchen Whitmer",
+                "lastTradePrice": 55.5
+            },
+            {
+                "contractName": "Pete Buttigieg",
+                "lastTradePrice": 48.9
+            },
+            {
+                "contractName": "[Any Democrat Except Biden or Harris]",
+                "lastTradePrice": 62.4
+            },
+            {
+                "contractName": "Josh Shapiro",
+                "lastTradePrice": 59.2
+            },
+            {
+                "contractName": "Andy Beshear",
+                "lastTradePrice": 61.0
+            }
+        ],
+        "totalValue": 204389.43367614885
+    },
+    {
+        "title": "2024 House Races: Which congressional elections will be won by a Republican? [10K Subsidy]",
+        "contracts": [
+            {
+                "contractName": "AL-02\tNEW SEAT",
+                "lastTradePrice": 6.4
+            },
+            {
+                "contractName": "CA-09\tJosh Harder (D)",
+                "lastTradePrice": 14.0
+            },
+            {
+                "contractName": "CA-49\tMike Levin (D)",
+                "lastTradePrice": 8.0
+            },
+            {
+                "contractName": "FL-09\tDarren Soto (D)",
+                "lastTradePrice": 10.0
+            },
+            {
+                "contractName": "FL-23\tJared Moskowitz (D)",
+                "lastTradePrice": 8.4
+            },
+            {
+                "contractName": "KS-03\tSharice Davids (D)",
+                "lastTradePrice": 10.0
+            },
+            {
+                "contractName": "MD-06\tOPEN (Trone) (D)",
+                "lastTradePrice": 8.6
+            },
+            {
+                "contractName": "MI-03\tHillary Scholten (D)",
+                "lastTradePrice": 8.5
+            },
+            {
+                "contractName": "NH-01\tChris Pappas (D)",
+                "lastTradePrice": 10.0
+            },
+            {
+                "contractName": "NH-02\tAnnie Kuster (D)",
+                "lastTradePrice": 9.5
+            },
+            {
+                "contractName": "NV-01\tDina Titus (D)",
+                "lastTradePrice": 33.1
+            },
+            {
+                "contractName": "NV-04\tSteven Horsford (D)",
+                "lastTradePrice": 29.7
+            },
+            {
+                "contractName": "NY-03\tTom Suozzi (D)",
+                "lastTradePrice": 25.0
+            },
+            {
+                "contractName": "OH-01\tGreg Landsman (D)",
+                "lastTradePrice": 24.0
+            },
+            {
+                "contractName": "OR-04\tVal Hoyle (D)",
+                "lastTradePrice": 10.0
+            },
+            {
+                "contractName": "TX-28\tHenry Cuellar (D)",
+                "lastTradePrice": 67.5
+            },
+            {
+                "contractName": "WA-08\tKim Schrier (D) - Likely D",
+                "lastTradePrice": 18.0
+            },
+            {
+                "contractName": "AK-00\tMary Peltola (D)",
+                "lastTradePrice": 25.8
+            },
+            {
+                "contractName": "CA-47\tOPEN (Porter) (D)",
+                "lastTradePrice": 30.9
+            },
+            {
+                "contractName": "CT-05\tJahana Hayes (D)",
+                "lastTradePrice": 18.7
+            },
+            {
+                "contractName": "IL-17\tEric Sorensen (D)",
+                "lastTradePrice": 18.7
+            },
+            {
+                "contractName": "IN-01\tFrank J. Mrvan (D)",
+                "lastTradePrice": 18.4
+            },
+            {
+                "contractName": "MN-02\tAngie Craig (D)",
+                "lastTradePrice": 34.0
+            },
+            {
+                "contractName": "NV-03\tSusie Lee (D)",
+                "lastTradePrice": 33.1
+            },
+            {
+                "contractName": "NY-18\tPat Ryan (D)",
+                "lastTradePrice": 41.4
+            },
+            {
+                "contractName": "NY-22\tBrandon Williams (R)",
+                "lastTradePrice": 51.2
+            },
+            {
+                "contractName": "OR-06\tAndrea Salinas (D)",
+                "lastTradePrice": 11.0
+            },
+            {
+                "contractName": "PA-17\tChris Deluzio (D)",
+                "lastTradePrice": 18.0
+            },
+            {
+                "contractName": "TX-34\tVicente Gonzalez (D)",
+                "lastTradePrice": 22.0
+            },
+            {
+                "contractName": "VA-07\tOPEN (Spanberger) (D) - Lean D",
+                "lastTradePrice": 32.0
+            },
+            {
+                "contractName": "CO-08\tYadira Caraveo (D) - Won by 0.69%",
+                "lastTradePrice": 39.8
+            },
+            {
+                "contractName": "ME-02\tJared Golden (D) - Won by 2.15%",
+                "lastTradePrice": 40.7
+            },
+            {
+                "contractName": "MI-07\tOPEN (Slotkin) (D) - Won by 5.42% - Full Toss-up",
+                "lastTradePrice": 47.7
+            },
+            {
+                "contractName": "MI-08\tOPEN (Kildee) (D) - Won by 10.26%",
+                "lastTradePrice": 56.8
+            },
+            {
+                "contractName": "NC-01\tDon Davis (D) - Won by 4.74% - Full Toss-up",
+                "lastTradePrice": 44.4
+            },
+            {
+                "contractName": "NM-02\tGabe Vasquez (D) - Won by 0.70%",
+                "lastTradePrice": 45.8
+            },
+            {
+                "contractName": "OH-09\tMarcy Kaptur (D) - Won by 13.27%",
+                "lastTradePrice": 34.4
+            },
+            {
+                "contractName": "OH-13\tEmilia Sykes (D) - Won by 5.35%",
+                "lastTradePrice": 40.5
+            },
+            {
+                "contractName": "PA-07\tSusan Wild (D) - Won by 1.97%",
+                "lastTradePrice": 47.0
+            },
+            {
+                "contractName": "PA-08\tMatt Cartwright (D) - Won by 3.55%",
+                "lastTradePrice": 48.3
+            },
+            {
+                "contractName": "WA-03\tMarie Perez (D) - Won by 0.82% - Full Toss-up",
+                "lastTradePrice": 41.5
+            },
+            {
+                "contractName": "AZ-01\tDavid Schweikert (R) - Won by 0.88%",
+                "lastTradePrice": 56.7
+            },
+            {
+                "contractName": "AZ-06\tJuan Ciscomani (R) - Won by 1.50%",
+                "lastTradePrice": 60.3
+            },
+            {
+                "contractName": "CA-13\tJohn Duarte (R) - Won by 0.42% - Full Toss-up",
+                "lastTradePrice": 46.0
+            },
+            {
+                "contractName": "CA-22\tDavid Valadao (R) - Won by 3.05%",
+                "lastTradePrice": 64.4
+            },
+            {
+                "contractName": "CA-27\tMike Garcia (R) - Won by 6.48% - Full Toss-up",
+                "lastTradePrice": 55.3
+            },
+            {
+                "contractName": "CA-41\tKen Calvert (R) - Won by 4.69%",
+                "lastTradePrice": 64.6
+            },
+            {
+                "contractName": "NJ-07\tThomas Kean Jr. (R) - Won by 2.80%",
+                "lastTradePrice": 45.6
+            },
+            {
+                "contractName": "NY-04\tAnthony D'Esposito (R) - Won by 3.59%",
+                "lastTradePrice": 22.0
+            },
+            {
+                "contractName": "NY-17\tMike Lawler (R) - Won by 0.64% - Full Toss-up",
+                "lastTradePrice": 54.2
+            },
+            {
+                "contractName": "NY-19\tMarc Molinaro (R) - Won by 1.56%",
+                "lastTradePrice": 63.3
+            },
+            {
+                "contractName": "OR-05\tLori Chavez-DeRemer (R) - Won by 2.08% - Full Toss-up",
+                "lastTradePrice": 40.0
+            },
+            {
+                "contractName": "CA-45\tMichelle Steel (R) - Lean R",
+                "lastTradePrice": 89.7
+            },
+            {
+                "contractName": "CO-03\tOPEN (Boebert) (R)",
+                "lastTradePrice": 83.5
+            },
+            {
+                "contractName": "IA-03\tZach Nunn (R)",
+                "lastTradePrice": 73.6
+            },
+            {
+                "contractName": "MI-10\tJohn James (R)",
+                "lastTradePrice": 82.0
+            },
+            {
+                "contractName": "NE-02\tDon Bacon (R)",
+                "lastTradePrice": 56.0
+            },
+            {
+                "contractName": "PA-10\tScott Perry (R)",
+                "lastTradePrice": 84.3
+            },
+            {
+                "contractName": "VA-02\tJen Kiggans (R)",
+                "lastTradePrice": 74.3
+            },
+            {
+                "contractName": "WI-03\tDerrick Van Orden (R)",
+                "lastTradePrice": 81.5
+            },
+            {
+                "contractName": "CA-03\tKevin Kiley (R) - Likely R",
+                "lastTradePrice": 85.0
+            },
+            {
+                "contractName": "CA-40\tYoung Kim (R)",
+                "lastTradePrice": 93.1
+            },
+            {
+                "contractName": "FL-13\tAnna Paulina Luna (R)",
+                "lastTradePrice": 84.7
+            },
+            {
+                "contractName": "IA-01\tMariannette Miller-Meeks (R)",
+                "lastTradePrice": 83.7
+            },
+            {
+                "contractName": "MT-01\tRyan Zinke (R)",
+                "lastTradePrice": 81.9
+            },
+            {
+                "contractName": "NY-01\tNick LaLota (R)",
+                "lastTradePrice": 82.5
+            },
+            {
+                "contractName": "PA-01\tBrian Fitzpatrick (R)",
+                "lastTradePrice": 89.6
+            },
+            {
+                "contractName": "SC-01\tNancy Mace (R)",
+                "lastTradePrice": 90.6
+            },
+            {
+                "contractName": "TX-15\tMonica De La Cruz (R)",
+                "lastTradePrice": 87.6
+            }
+        ],
+        "totalValue": 11263.94545093645
+    }
+]

@@ -1,0 +1,124 @@
+[
+    {
+        "title": "Democratic vice presidential nominee? - Presidential Election Winner 2024 - Which party will win the 2024 US Presidential Election? - 2024 Presidential Election USA",
+        "predictit": {
+            "title": "Democratic vice presidential nominee?",
+            "contracts": [
+                {
+                    "contractName": "Josh Shapiro",
+                    "lastTradePrice": 63.0
+                },
+                {
+                    "contractName": "Tim Walz",
+                    "lastTradePrice": 32.0
+                }
+            ]
+        },
+        "polymarket": {
+            "title": "Presidential Election Winner 2024",
+            "contracts": [
+                {
+                    "contractName": "Donald Trump",
+                    "lastTradePrice": 69.5
+                },
+                {
+                    "contractName": "Joe Biden",
+                    "lastTradePrice": 16.5
+                },
+                {
+                    "contractName": "Nikki Haley",
+                    "lastTradePrice": 0.1
+                },
+                {
+                    "contractName": "Gavin Newsom",
+                    "lastTradePrice": 1.1
+                },
+                {
+                    "contractName": "Robert F. Kennedy Jr.",
+                    "lastTradePrice": 1.4
+                },
+                {
+                    "contractName": "Ron DeSantis",
+                    "lastTradePrice": 0.1
+                },
+                {
+                    "contractName": "Vivek Ramaswamy",
+                    "lastTradePrice": 0.1
+                },
+                {
+                    "contractName": "Kamala Harris",
+                    "lastTradePrice": 7.8
+                },
+                {
+                    "contractName": "Chris Christie",
+                    "lastTradePrice": 0.1
+                },
+                {
+                    "contractName": "Elizabeth Warren",
+                    "lastTradePrice": 0.1
+                },
+                {
+                    "contractName": "Bernie Sanders",
+                    "lastTradePrice": 0.1
+                },
+                {
+                    "contractName": "AOC",
+                    "lastTradePrice": 0.1
+                },
+                {
+                    "contractName": "Other Democrat Politician",
+                    "lastTradePrice": 2.5
+                },
+                {
+                    "contractName": "Other Republican Politician",
+                    "lastTradePrice": 0.9
+                },
+                {
+                    "contractName": "Kanye",
+                    "lastTradePrice": 0.1
+                },
+                {
+                    "contractName": "Michelle Obama",
+                    "lastTradePrice": 2.6
+                },
+                {
+                    "contractName": "Hillary Clinton",
+                    "lastTradePrice": 0.4
+                }
+            ]
+        },
+        "manifold": {
+            "title": "Which party will win the 2024 US Presidential Election?",
+            "contracts": [
+                {
+                    "contractName": "Democratic Party",
+                    "lastTradePrice": 49.8
+                },
+                {
+                    "contractName": "Republican Party",
+                    "lastTradePrice": 50.1
+                },
+                {
+                    "contractName": "Other",
+                    "lastTradePrice": 0.1
+                }
+            ]
+        },
+        "pinnacle": {
+            "title": "2024 Presidential Election USA",
+            "contracts": [
+                {
+                    "contractName": "Donald Trump",
+                    "lastTradePrice": 55.6
+                },
+                {
+                    "contractName": "Field (any other candidate)",
+                    "lastTradePrice": 47.6
+                }
+            ]
+        },
+        "fairplay": null,
+        "betfair": null,
+        "smarket": null
+    }
+]
