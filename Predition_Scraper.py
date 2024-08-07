@@ -332,7 +332,7 @@ def get_smarkets_data():
     # print(f"Data has been saved to {json_file_path}")
 
 def get_metaculus_data() :
-    response = requests.get("https://www.metaculus.com/api2/questions/?categories=politics%20elections&has_group=False&limit=200&main-feed=True&offset=0&order_by=-activity&status=open&type=forecast&order_by=-publish_time&forecast_type=multiple_choice",
+    response = requests.get("https://www.metaculus.com/api2/questions/?categories=elections&forecast_type=group&has_group=false&main-feed=true&order_by=-activity&status=open",
         # params=params,
         # cookies=smarkets_cookies,
         # headers=smarkets_headers,
@@ -342,12 +342,11 @@ def get_metaculus_data() :
     output = []
     for question in questions :
         temp = {}
-        contractors = question['options']
-        values = question['recency_weighted_community_prediction_v2'][-1]
+        contractors = question['sub_questions']
         temp['contracts'] = [
             {
-                'contractName': item['label'],
-                'lastTradePrice': values['values'][str(item['id'])]
+                'contractName': item['sub_question_label'],
+                'lastTradePrice': item["community_prediction"]['full']['q2'] * 100
             }
             for item in contractors
         ]
@@ -373,10 +372,10 @@ class ScrapingThread(threading.Thread):
             #     get_predictit_data()
             # except Exception as e:
             #     print("betfair failed", e)
-            try:
-                get_polymarket_data()
-            except Exception as e:
-                print("polymarket failed", e)
+            # try:
+            #     get_polymarket_data()
+            # except Exception as e:
+            #     print("polymarket failed", e)
             # try:
             #     get_manifolds_data()
             # except Exception as e:
@@ -402,10 +401,10 @@ class ScrapingThread(threading.Thread):
             # except Exception as e:
             #     print("smarkets failed", e)
             
-            # try:
-            #     get_metaculus_data()
-            # except Exception as e:
-            #     print("metaculus failed", e)
+            try:
+                get_metaculus_data()
+            except Exception as e:
+                print("metaculus failed", e)
             
             print("sleeping")
             time.sleep(self.timer)
