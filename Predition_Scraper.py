@@ -368,38 +368,38 @@ class ScrapingThread(threading.Thread):
     def run(self):
         while not self.stop_thread.is_set():
             print('called')
-            # try:
-            #     get_predictit_data()
-            # except Exception as e:
-            #     print("betfair failed", e)
-            # try:
-            #     get_polymarket_data()
-            # except Exception as e:
-            #     print("polymarket failed", e)
-            # try:
-            #     get_manifolds_data()
-            # except Exception as e:
-            #     print("manifolds failed", e)
+            try:
+                get_predictit_data()
+            except Exception as e:
+                print("betfair failed", e)
+            try:
+                get_polymarket_data()
+            except Exception as e:
+                print("polymarket failed", e)
+            try:
+                get_manifolds_data()
+            except Exception as e:
+                print("manifolds failed", e)
                 
-            # try:
-            #     get_pinnacle_data()
-            # except Exception as e:
-            #     print("pinnacle failed", e)
+            try:
+                get_pinnacle_data()
+            except Exception as e:
+                print("pinnacle failed", e)
                 
-            # try:
-            #     get_fairplay_data()
-            # except Exception as e:
-            #     print("fairplay failed", e)
+            try:
+                get_fairplay_data()
+            except Exception as e:
+                print("fairplay failed", e)
                 
-            # try:
-            #     get_betfair_events()
-            # except Exception as e:
-            #     print("betfair failed", e)
+            try:
+                get_betfair_events()
+            except Exception as e:
+                print("betfair failed", e)
                 
-            # try:
-            #     get_smarkets_data()
-            # except Exception as e:
-            #     print("smarkets failed", e)
+            try:
+                get_smarkets_data()
+            except Exception as e:
+                print("smarkets failed", e)
             
             try:
                 get_metaculus_data()
