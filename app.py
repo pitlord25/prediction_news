@@ -262,7 +262,7 @@ polymarket_events = db_manager.find_latest_document("polymarket_collection")['da
 manifold_events = db_manager.find_latest_document("manifolds_collection")['data']
 pinnacle_events = db_manager.find_latest_document("pinnacle_collection")['data']
 fairplay_events = db_manager.find_latest_document("fairplay_collection")['data']
-# betfair_events = db_manager.find_latest_document("betfair_collection")['data']
+betfair_events = db_manager.find_latest_document("betfair_collection")['data']
 smarket_events = db_manager.find_latest_document("smarkets_collection")['data']
 metaculus_events = db_manager.find_latest_document("metaculus_collection")['data']
 
@@ -271,7 +271,7 @@ metaculus_events = db_manager.find_latest_document("metaculus_collection")['data
 # manifold_events = load_json('manifold.json')
 # pinnacle_events = load_json('pinnacle.json')
 # fairplay_events = load_json('fairplay.json')
-betfair_events = load_json('betfair.json')
+# betfair_events = load_json('betfair.json')
 # smarket_events = load_json('smarkets.json')  # Load new data source
 
 # Initialize or load matched events

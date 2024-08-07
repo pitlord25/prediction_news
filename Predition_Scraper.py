@@ -398,10 +398,10 @@ class ScrapingThread(threading.Thread):
             # except Exception as e:
             #     print("betfair failed", e)
                 
-            try:
-                get_smarkets_data()
-            except Exception as e:
-                print("smarkets failed", e)
+            # try:
+            #     get_smarkets_data()
+            # except Exception as e:
+            #     print("smarkets failed", e)
             
             # try:
             #     get_metaculus_data()
