@@ -66,7 +66,7 @@ def get_polymarket_data(timestamp):
 def get_manifolds_data(timestamp):
     print("getting manifolds data...")
     response = requests.get(
-        'https://manifold.markets/_next/data/Gv5atWKv-Opo5-65_WET-/election.json',
+        'https://manifold.markets/_next/data/eQa3lZQM60Jw6fb6zD-H-/election.json',
         cookies=manifold_cookies,
         headers=manifold_headers,
     )
