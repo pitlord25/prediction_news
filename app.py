@@ -242,8 +242,11 @@ def match_participants(event1, event2, event3, event4, event5, event6, event7, e
             match_data["PredictionNews"] = None
 
         data.append(match_data)
-
-    return pd.DataFrame(data)
+    df = pd.DataFrame(data)
+    col_to_move = 'PredictionNews'
+    cols = [col for col in df.columns if col != col_to_move] + [col_to_move]
+    df = df[cols]
+    return df
 
 # Function to normalize a participant name by removing punctuation, spaces, and making lowercase
 def normalize_name(name):
