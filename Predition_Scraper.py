@@ -11,7 +11,7 @@ from MongoDBManger import MongoDBManager
 import httpx
 
 
-def get_predictit_data():
+def get_predictit_data(timestamp):
     print("getting predictit data...")
     response = requests.get('https://www.predictit.org/api/Browse/FilteredMarkets/3', params=predictit_params, cookies=predictit_cookies, headers=predictit_headers)
     data =  response.json()
@@ -26,14 +26,14 @@ def get_predictit_data():
         output.append(temp)
         
     db_manager.insert_document("predictit_collection", {
-        "timestamp" : datetime.datetime.now(),
+        "timestamp" : timestamp,
         "data" : output
     })
 
     # with open("predictit.json", "w") as f:
     #     json.dump(output, f, indent=4)
 
-def get_polymarket_data():
+def get_polymarket_data(timestamp):
     print("getting polymarket data...")
     # response = requests.post('https://polymarket.com/api/events', params=polymarket_params, cookies=polymarket_cookies, headers=polymarket_headers, json=polymarket_json_data)
     response = requests.get("https://gamma-api.polymarket.com/events?limit=200&active=true&archived=false&tag_slug=politics&closed=false&order=volume24hr&ascending=false&offset=0")
@@ -57,13 +57,13 @@ def get_polymarket_data():
         output.append(temp)
     
     db_manager.insert_document("polymarket_collection", {
-        "timestamp" : datetime.datetime.now(),
+        "timestamp" : timestamp,
         "data" : output
     })
     # with open("polymarket.json", "w") as f:
     #     json.dump(output, f, indent=4)
 
-def get_manifolds_data():
+def get_manifolds_data(timestamp):
     print("getting manifolds data...")
     response = requests.get(
         'https://manifold.markets/_next/data/Gv5atWKv-Opo5-65_WET-/election.json',
@@ -89,7 +89,7 @@ def get_manifolds_data():
         output.append(temp)
         
     db_manager.insert_document("manifolds_collection", {
-        "timestamp" : datetime.datetime.now(),
+        "timestamp" : timestamp,
         "data" : output
     })
 
@@ -116,7 +116,7 @@ def us_to_decimal(odds_list):
     
     return decimal_odds
 
-def get_pinnacle_data():
+def get_pinnacle_data(timestamp):
     print("getting pinnacle data...")
     params = {
         'brandId': '0',
@@ -137,17 +137,17 @@ def get_pinnacle_data():
             "contractName": contract[0]["name"],
             "lastTradePrice": round(100 / contract[1], 1)
             } for contract in zip(event["participants"],decimal_odds)]
-        temp['timestamp'] = datetime.datetime.now()
+        # temp['timestamp'] = datetime.datetime.now()
         output.append(temp)
     
     db_manager.insert_document("pinnacle_collection", {
-        "timestamp" : datetime.datetime.now(),
+        "timestamp" : timestamp,
         "data" : output
     })
     # with open("pinnacle.json", "w") as f:
     #     json.dump(output, f, indent=4)
 
-def get_fairplay_data():
+def get_fairplay_data(timestamp):
     print("getting fairplay data...")
     json_file_path = "fairplay.json"
     url = "https://fairlay.com/markets/news/"
@@ -185,7 +185,7 @@ def get_fairplay_data():
         output.append(temp)
 
     db_manager.insert_document("fairplay_collection", {
-        "timestamp" : datetime.datetime.now(),
+        "timestamp" : timestamp,
         "data" : output
     })
     # Save the dictionary as a JSON file
@@ -194,7 +194,7 @@ def get_fairplay_data():
 
     # print(f"Data has been saved to {json_file_path}")
 
-def get_betfair_events():
+def get_betfair_events(timestamp):
     print("getting betfair data...")
     json_file_path = "betfair.json"
     url = 'https://ero.betfair.com/www/sports/exchange/readonly/v1/byevent?_ak=nzIFcwyWhrlwYMrh&currencyCode=GBP&eventIds=30186572&locale=en_GB&rollupLimit=10&rollupModel=STAKE&types=MARKET_STATE,EVENT,MARKET_DESCRIPTION'
@@ -226,7 +226,7 @@ def get_betfair_events():
     # print(output)
 
     db_manager.insert_document("betfair_collection", {
-        "timestamp" : datetime.datetime.now(),
+        "timestamp" : timestamp,
         "data" : output
     })
     # Save the dictionary as a JSON file
@@ -296,7 +296,7 @@ def get_contracts_values_smarkets(market_id, contracts_ids):
 
     return data
 
-def get_smarkets_data():
+def get_smarkets_data(timestamp):
     print("getting smarkets data...")
     markets = get_smarkets()
 
@@ -323,7 +323,7 @@ def get_smarkets_data():
     # json_file_path = "smarkets.json"
 
     db_manager.insert_document("smarkets_collection", {
-        "timestamp" : datetime.datetime.now(),
+        "timestamp" : timestamp,
         "data" : output
     })
 
@@ -333,7 +333,8 @@ def get_smarkets_data():
 
     # print(f"Data has been saved to {json_file_path}")
 
-def get_metaculus_data() :
+def get_metaculus_data(timestamp) :
+    print("getting metaculus data...")
     response = requests.get("https://www.metaculus.com/api2/questions/?categories=elections&forecast_type=group&has_group=false&main-feed=true&order_by=-activity&status=open",
         # params=params,
         # cookies=smarkets_cookies,
@@ -356,7 +357,7 @@ def get_metaculus_data() :
         output.append(temp)
         
     db_manager.insert_document("metaculus_collection", {
-        "timestamp" : datetime.datetime.now(),
+        "timestamp" : timestamp,
         "data" : output
     })
     
@@ -370,41 +371,42 @@ class ScrapingThread(threading.Thread):
     def run(self):
         while not self.stop_thread.is_set():
             print('called')
+            timestamp = datetime.datetime.now()
             try:
-                get_predictit_data()
+                get_predictit_data(timestamp)
             except Exception as e:
                 print("betfair failed", e)
             try:
-                get_polymarket_data()
+                get_polymarket_data(timestamp)
             except Exception as e:
                 print("polymarket failed", e)
             try:
-                get_manifolds_data()
+                get_manifolds_data(timestamp)
             except Exception as e:
                 print("manifolds failed", e)
                 
             try:
-                get_pinnacle_data()
+                get_pinnacle_data(timestamp)
             except Exception as e:
                 print("pinnacle failed", e)
                 
             try:
-                get_fairplay_data()
+                get_fairplay_data(timestamp)
             except Exception as e:
                 print("fairplay failed", e)
                 
             try:
-                get_betfair_events()
+                get_betfair_events(timestamp)
             except Exception as e:
                 print("betfair failed", e)
                 
             try:
-                get_smarkets_data()
+                get_smarkets_data(timestamp)
             except Exception as e:
                 print("smarkets failed", e)
             
             try:
-                get_metaculus_data()
+                get_metaculus_data(timestamp)
             except Exception as e:
                 print("metaculus failed", e)
             
