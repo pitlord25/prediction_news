@@ -250,7 +250,8 @@ def get_smarkets():
     markets = response.json()["markets"]
     markets = [{
         "description": market["description"],
-        "id": market["id"]
+        "id": market["id"],
+        "name" : market['name']
         } for market in markets]
     
     return markets
@@ -281,18 +282,17 @@ def get_contracts_values_smarkets(market_id, contracts_ids):
     }
 
     response = requests.get(
-        f'https://api.smarkets.com/v3/events/41945845/markets/{market_id}/contracts/{contracts_ids}/executions_time_series/',
+        f'https://api.smarkets.com/v3/markets/{market_id}/last_executed_prices',
         params=params,
         cookies=smarkets_cookies,
         headers=smarkets_headers,
     )
-
-    contracts = response.json()["contracts"]
+    contracts = response.json()["last_executed_prices"][market_id]
 
     data = [{
         "id": contract["contract_id"],
-        "lastTradePrice": round(contract["before"]["ohlc"][0]/100,1)
-    } for contract in contracts]
+        "lastTradePrice": float(contract["last_executed_price"])
+    } for contract in contracts if contract['contract_id'] in contracts_ids]
 
     return data
 
@@ -302,19 +302,21 @@ def get_smarkets_data():
 
     markets_ids = ",".join([market["id"] for market in markets])
     contracts = get_contracts_smarkets(markets_ids)
+    # print(contracts)
     volumes = get_volumes_smarkets(markets_ids)
 
     output = []
     for market in markets:
         temp = {}
-        contracts_ids = ",".join([contract["id"] for contract in contracts if contract["market_id"] == market["id"] and contract["info"]])
+        contracts_ids = ",".join([contract["id"] for contract in contracts if contract["market_id"] == market["id"]])
         try:
             temp["contracts"] = get_contracts_values_smarkets(market["id"], contracts_ids)
-        except:
+        except Exception as e:
+            print(e)
             continue
         for tp in temp["contracts"]:
             tp["contractName"] = [contract for contract in contracts if contract["id"] == tp["id"]][0]["name"]
-        temp["title"] = [mk["description"] for mk in markets if mk["id"] == market["id"]][0]
+        temp["title"] = [mk["name"] + "-" + mk["description"] for mk in markets if mk["id"] == market["id"]][0]
         temp["totalValue"] = [volume["volume"] for volume in volumes if volume["market_id"] == market["id"]][0]
         output.append(temp)
 
@@ -368,43 +370,43 @@ class ScrapingThread(threading.Thread):
     def run(self):
         while not self.stop_thread.is_set():
             print('called')
-            try:
-                get_predictit_data()
-            except Exception as e:
-                print("betfair failed", e)
-            try:
-                get_polymarket_data()
-            except Exception as e:
-                print("polymarket failed", e)
-            try:
-                get_manifolds_data()
-            except Exception as e:
-                print("manifolds failed", e)
+            # try:
+            #     get_predictit_data()
+            # except Exception as e:
+            #     print("betfair failed", e)
+            # try:
+            #     get_polymarket_data()
+            # except Exception as e:
+            #     print("polymarket failed", e)
+            # try:
+            #     get_manifolds_data()
+            # except Exception as e:
+            #     print("manifolds failed", e)
                 
-            try:
-                get_pinnacle_data()
-            except Exception as e:
-                print("pinnacle failed", e)
+            # try:
+            #     get_pinnacle_data()
+            # except Exception as e:
+            #     print("pinnacle failed", e)
                 
-            try:
-                get_fairplay_data()
-            except Exception as e:
-                print("fairplay failed", e)
+            # try:
+            #     get_fairplay_data()
+            # except Exception as e:
+            #     print("fairplay failed", e)
                 
-            try:
-                get_betfair_events()
-            except Exception as e:
-                print("betfair failed", e)
+            # try:
+            #     get_betfair_events()
+            # except Exception as e:
+            #     print("betfair failed", e)
                 
             try:
                 get_smarkets_data()
             except Exception as e:
                 print("smarkets failed", e)
             
-            try:
-                get_metaculus_data()
-            except Exception as e:
-                print("metaculus failed", e)
+            # try:
+            #     get_metaculus_data()
+            # except Exception as e:
+            #     print("metaculus failed", e)
             
             print("sleeping")
             time.sleep(self.timer)
