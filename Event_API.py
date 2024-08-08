@@ -61,7 +61,7 @@ async def get_markets(
 ):
     # Validate that each market is in the valid_markets list
     for m in market:
-        if m not in valid_markets:
+        if m.capitalize() not in valid_markets:
             raise HTTPException(status_code=400, detail=f"Invalid market: {m}. Must be one of {valid_markets}")
 
     # Calculate the start time if lookback is provided
@@ -107,7 +107,7 @@ async def get_markets(
 
             if filtered_contracts:
                 results.append({
-                    "market": m,
+                    "market": m.capitalize(),
                     "timestamp": document['timestamp'],
                     "data": filtered_contracts
                 })
