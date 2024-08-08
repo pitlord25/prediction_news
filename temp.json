@@ -24,9 +24,9 @@
                                 "numberOfWinners": 1,
                                 "numberOfRunners": 2,
                                 "numberOfActiveRunners": 2,
-                                "lastMatchTime": "2024-08-06T13:25:29.615Z",
-                                "totalMatched": 46462.59925344263,
-                                "totalAvailable": 3871.3228516958998,
+                                "lastMatchTime": "2024-08-08T15:26:25.595Z",
+                                "totalMatched": 51371.11724769007,
+                                "totalAvailable": 6981.405211887561,
                                 "crossMatching": true,
                                 "runnersVoidable": false,
                                 "version": 6013568102,
@@ -66,37 +66,37 @@
                                     },
                                     "state": {
                                         "sortPriority": 1,
-                                        "lastPriceTraded": 2.58,
+                                        "lastPriceTraded": 2.84,
                                         "totalMatched": 0.0,
                                         "status": "ACTIVE"
                                     },
                                     "exchange": {
                                         "availableToBack": [
                                             {
-                                                "price": 2.56,
-                                                "size": 28.39
+                                                "price": 2.8,
+                                                "size": 15.72
                                             },
                                             {
-                                                "price": 2.54,
-                                                "size": 13.91
+                                                "price": 2.78,
+                                                "size": 55.78
                                             },
                                             {
-                                                "price": 2.52,
-                                                "size": 135.97
+                                                "price": 2.66,
+                                                "size": 88.21
                                             }
                                         ],
                                         "availableToLay": [
                                             {
-                                                "price": 2.6,
-                                                "size": 20.0
+                                                "price": 2.98,
+                                                "size": 23.3
                                             },
                                             {
-                                                "price": 2.66,
-                                                "size": 60.22
+                                                "price": 3.0,
+                                                "size": 88.98
                                             },
                                             {
-                                                "price": 2.68,
-                                                "size": 146.33
+                                                "price": 3.2,
+                                                "size": 51.67
                                             }
                                         ]
                                     }
@@ -112,37 +112,37 @@
                                     },
                                     "state": {
                                         "sortPriority": 2,
-                                        "lastPriceTraded": 1.63,
+                                        "lastPriceTraded": 1.56,
                                         "totalMatched": 0.0,
                                         "status": "ACTIVE"
                                     },
                                     "exchange": {
                                         "availableToBack": [
                                             {
-                                                "price": 1.62,
-                                                "size": 32.1
+                                                "price": 1.51,
+                                                "size": 39.81
                                             },
                                             {
-                                                "price": 1.6,
-                                                "size": 336.66
+                                                "price": 1.5,
+                                                "size": 184.11
                                             },
                                             {
-                                                "price": 1.59,
-                                                "size": 16.61
+                                                "price": 1.45,
+                                                "size": 114.03
                                             }
                                         ],
                                         "availableToLay": [
                                             {
-                                                "price": 1.65,
-                                                "size": 86.53
+                                                "price": 1.56,
+                                                "size": 93.55
                                             },
                                             {
-                                                "price": 1.66,
-                                                "size": 187.47
+                                                "price": 1.57,
+                                                "size": 33.85
                                             },
                                             {
-                                                "price": 1.67,
-                                                "size": 141.1
+                                                "price": 1.6,
+                                                "size": 13.47
                                             }
                                         ]
                                     }

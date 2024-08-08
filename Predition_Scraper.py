@@ -15,6 +15,7 @@ def get_predictit_data(timestamp):
     print("getting predictit data...")
     response = requests.get('https://www.predictit.org/api/Browse/FilteredMarkets/3', params=predictit_params, cookies=predictit_cookies, headers=predictit_headers)
     data =  response.json()
+    print(data)
     output = []
     for market in data["markets"]:
         temp = {}
@@ -38,15 +39,17 @@ def get_polymarket_data(timestamp):
     # response = requests.post('https://polymarket.com/api/events', params=polymarket_params, cookies=polymarket_cookies, headers=polymarket_headers, json=polymarket_json_data)
     response = requests.get("https://gamma-api.polymarket.com/events?limit=200&active=true&archived=false&tag_slug=politics&closed=false&order=volume24hr&ascending=false&offset=0")
     data = response.json()
-
+    
     output = []
     for market in data:
+        
         temp = {}
         temp["title"] = market["title"]
         if len(market["markets"]) > 1:
             temp["contracts"] = [{"contractName" : contract["groupItemTitle"],
-                            "lastTradePrice": round(float(json.loads(contract["outcomePrices"])[0]) * 100, 1)} 
-                            for contract in market["markets"]]
+                            "lastTradePrice": round(float(json.loads(contract["outcomePrices"])[0]) * 100, 1),
+                            "volume" : float(contract['volume'])} 
+                            for contract in market["markets"] if 'volume' in contract]
         else:
             keys = json.loads(market["markets"][0]["outcomes"])
             values = json.loads(market["markets"][0]["outcomePrices"])
@@ -66,7 +69,7 @@ def get_polymarket_data(timestamp):
 def get_manifolds_data(timestamp):
     print("getting manifolds data...")
     response = requests.get(
-        'https://manifold.markets/_next/data/eQa3lZQM60Jw6fb6zD-H-/election.json',
+        'https://manifold.markets/_next/data/WU3q8n-2Fp8MXPeCicbwu/election.json',
         cookies=manifold_cookies,
         headers=manifold_headers,
     )
@@ -125,6 +128,7 @@ def get_pinnacle_data(timestamp):
     response = requests.get('https://guest.api.arcadia.pinnacle.com/0.1/leagues/212277/matchups', params=params, headers=pinnacle_headers)
 
     odds = requests.get('https://guest.api.arcadia.pinnacle.com/0.1/leagues/212277/markets/straight', headers=straight_pinnacle_headers)
+    print(odds.json())
     odds = [i["price"] for i in odds.json()[0]["prices"]]
     decimal_odds = us_to_decimal(odds)
     data = response.json()
@@ -172,6 +176,8 @@ def get_fairplay_data(timestamp):
 
     # Convert the string into a dictionary
     json_dict = json.loads(json_str)
+    
+    print(json_dict)
 
     output = []
     for key in json_dict.keys():
@@ -212,6 +218,7 @@ def get_betfair_events(timestamp):
         response = requests.get(
             f'https://ero.betfair.com/www/sports/exchange/readonly/v1/bymarket?_ak=nzIFcwyWhrlwYMrh&alt=json&currencyCode=GBP&locale=en_GB&marketIds={event_id}&rollupLimit=10&rollupModel=STAKE&types=MARKET_STATE,MARKET_RATES,MARKET_DESCRIPTION,EVENT,RUNNER_DESCRIPTION,RUNNER_STATE,RUNNER_EXCHANGE_PRICES_BEST,RUNNER_METADATA,MARKET_LICENCE,MARKET_LINE_RANGE_INFO',
         )
+        print(f"https://ero.betfair.com/www/sports/exchange/readonly/v1/bymarket?_ak=nzIFcwyWhrlwYMrh&alt=json&currencyCode=GBP&locale=en_GB&marketIds={event_id}&rollupLimit=10&rollupModel=STAKE&types=MARKET_STATE,MARKET_RATES,MARKET_DESCRIPTION,EVENT,RUNNER_DESCRIPTION,RUNNER_STATE,RUNNER_EXCHANGE_PRICES_BEST,RUNNER_METADATA,MARKET_LICENCE,MARKET_LINE_RANGE_INFO")
         data = response.json()
         with open("temp.json", 'w', encoding='utf-8') as json_file:
             json.dump(data, json_file, ensure_ascii=False, indent=4)
@@ -372,43 +379,45 @@ class ScrapingThread(threading.Thread):
         while not self.stop_thread.is_set():
             print('called')
             timestamp = datetime.datetime.now()
-            try:
-                get_predictit_data(timestamp)
-            except Exception as e:
-                print("betfair failed", e)
-            try:
-                get_polymarket_data(timestamp)
-            except Exception as e:
-                print("polymarket failed", e)
-            try:
-                get_manifolds_data(timestamp)
-            except Exception as e:
-                print("manifolds failed", e)
+            # try:
+            #     get_predictit_data(timestamp)
+            # except Exception as e:
+            #     print("betfair failed", e)
+            
+            # try:
+            #     get_polymarket_data(timestamp)
+            # except Exception as e:
+            #     print("polymarket failed", e)
+            
+            # try:
+            #     get_manifolds_data(timestamp)
+            # except Exception as e:
+            #     print("manifolds failed", e)
                 
-            try:
-                get_pinnacle_data(timestamp)
-            except Exception as e:
-                print("pinnacle failed", e)
+            # try:
+            #     get_pinnacle_data(timestamp)
+            # except Exception as e:
+            #     print("pinnacle failed", e)
                 
-            try:
-                get_fairplay_data(timestamp)
-            except Exception as e:
-                print("fairplay failed", e)
+            # try:
+            #     get_fairplay_data(timestamp)
+            # except Exception as e:
+            #     print("fairplay failed", e)
                 
             try:
                 get_betfair_events(timestamp)
             except Exception as e:
                 print("betfair failed", e)
                 
-            try:
-                get_smarkets_data(timestamp)
-            except Exception as e:
-                print("smarkets failed", e)
+            # try:
+            #     get_smarkets_data(timestamp)
+            # except Exception as e:
+            #     print("smarkets failed", e)
             
-            try:
-                get_metaculus_data(timestamp)
-            except Exception as e:
-                print("metaculus failed", e)
+            # try:
+            #     get_metaculus_data(timestamp)
+            # except Exception as e:
+            #     print("metaculus failed", e)
             
             print("sleeping")
             time.sleep(self.timer)
