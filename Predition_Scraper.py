@@ -15,7 +15,6 @@ def get_predictit_data(timestamp):
     print("getting predictit data...")
     response = requests.get('https://www.predictit.org/api/Browse/FilteredMarkets/3', params=predictit_params, cookies=predictit_cookies, headers=predictit_headers)
     data =  response.json()
-    print(data)
     output = []
     for market in data["markets"]:
         temp = {}
@@ -128,7 +127,6 @@ def get_pinnacle_data(timestamp):
     response = requests.get('https://guest.api.arcadia.pinnacle.com/0.1/leagues/212277/matchups', params=params, headers=pinnacle_headers)
 
     odds = requests.get('https://guest.api.arcadia.pinnacle.com/0.1/leagues/212277/markets/straight', headers=straight_pinnacle_headers)
-    print(odds.json())
     odds = [i["price"] for i in odds.json()[0]["prices"]]
     decimal_odds = us_to_decimal(odds)
     data = response.json()
@@ -176,8 +174,6 @@ def get_fairplay_data(timestamp):
 
     # Convert the string into a dictionary
     json_dict = json.loads(json_str)
-    
-    print(json_dict)
 
     output = []
     for key in json_dict.keys():
