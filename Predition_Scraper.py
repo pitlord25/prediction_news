@@ -218,7 +218,6 @@ def get_betfair_events(timestamp):
         response = requests.get(
             f'https://ero.betfair.com/www/sports/exchange/readonly/v1/bymarket?_ak=nzIFcwyWhrlwYMrh&alt=json&currencyCode=GBP&locale=en_GB&marketIds={event_id}&rollupLimit=10&rollupModel=STAKE&types=MARKET_STATE,MARKET_RATES,MARKET_DESCRIPTION,EVENT,RUNNER_DESCRIPTION,RUNNER_STATE,RUNNER_EXCHANGE_PRICES_BEST,RUNNER_METADATA,MARKET_LICENCE,MARKET_LINE_RANGE_INFO',
         )
-        print(f"https://ero.betfair.com/www/sports/exchange/readonly/v1/bymarket?_ak=nzIFcwyWhrlwYMrh&alt=json&currencyCode=GBP&locale=en_GB&marketIds={event_id}&rollupLimit=10&rollupModel=STAKE&types=MARKET_STATE,MARKET_RATES,MARKET_DESCRIPTION,EVENT,RUNNER_DESCRIPTION,RUNNER_STATE,RUNNER_EXCHANGE_PRICES_BEST,RUNNER_METADATA,MARKET_LICENCE,MARKET_LINE_RANGE_INFO")
         data = response.json()
         with open("temp.json", 'w', encoding='utf-8') as json_file:
             json.dump(data, json_file, ensure_ascii=False, indent=4)
@@ -379,45 +378,45 @@ class ScrapingThread(threading.Thread):
         while not self.stop_thread.is_set():
             print('called')
             timestamp = datetime.datetime.now()
-            # try:
-            #     get_predictit_data(timestamp)
-            # except Exception as e:
-            #     print("betfair failed", e)
+            try:
+                get_predictit_data(timestamp)
+            except Exception as e:
+                print("betfair failed", e)
             
-            # try:
-            #     get_polymarket_data(timestamp)
-            # except Exception as e:
-            #     print("polymarket failed", e)
+            try:
+                get_polymarket_data(timestamp)
+            except Exception as e:
+                print("polymarket failed", e)
             
-            # try:
-            #     get_manifolds_data(timestamp)
-            # except Exception as e:
-            #     print("manifolds failed", e)
+            try:
+                get_manifolds_data(timestamp)
+            except Exception as e:
+                print("manifolds failed", e)
                 
-            # try:
-            #     get_pinnacle_data(timestamp)
-            # except Exception as e:
-            #     print("pinnacle failed", e)
+            try:
+                get_pinnacle_data(timestamp)
+            except Exception as e:
+                print("pinnacle failed", e)
                 
-            # try:
-            #     get_fairplay_data(timestamp)
-            # except Exception as e:
-            #     print("fairplay failed", e)
+            try:
+                get_fairplay_data(timestamp)
+            except Exception as e:
+                print("fairplay failed", e)
                 
             try:
                 get_betfair_events(timestamp)
             except Exception as e:
                 print("betfair failed", e)
                 
-            # try:
-            #     get_smarkets_data(timestamp)
-            # except Exception as e:
-            #     print("smarkets failed", e)
+            try:
+                get_smarkets_data(timestamp)
+            except Exception as e:
+                print("smarkets failed", e)
             
-            # try:
-            #     get_metaculus_data(timestamp)
-            # except Exception as e:
-            #     print("metaculus failed", e)
+            try:
+                get_metaculus_data(timestamp)
+            except Exception as e:
+                print("metaculus failed", e)
             
             print("sleeping")
             time.sleep(self.timer)
