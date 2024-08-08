@@ -1,9 +1,9 @@
+import re
 from fastapi import FastAPI, Query, HTTPException
 from typing import List, Optional
 from pymongo import MongoClient
 from pymongo.collection import Collection
 from datetime import datetime, timedelta
-import re
 
 app = FastAPI()
 
@@ -46,12 +46,18 @@ def parse_lookback(lookback: str) -> datetime:
     elif unit == 'Y':
         return now - timedelta(days=365 * amount)  # Approximate 1 year as 365 days
 
+def normalize_name(name: str):
+    """Normalize the name by removing non-alphanumeric characters, spaces, and converting to lowercase."""
+    normalized_name = re.sub(r'[^\w\s]', '', name).replace(" ", "").lower()
+    return normalized_name, name  # Return both normalized and original name
+
 @app.get("/markets")
 async def get_markets(
     market: List[str] = Query(..., description="List of markets", min_items=1),
     minimum_price: Optional[float] = Query(None, ge=0, description="Minimum price"),
     maximum_price: Optional[float] = Query(None, ge=0, description="Maximum price"),
-    lookback: Optional[str] = Query(None, description="Lookback period (e.g., 3h, 2D)")
+    lookback: Optional[str] = Query(None, description="Lookback period (e.g., 3h, 2D)"),
+    candidates: Optional[List[str]] = Query(None, description="List of candidate names to filter")
 ):
     # Validate that each market is in the valid_markets list
     for m in market:
@@ -62,6 +68,11 @@ async def get_markets(
     start_time = None
     if lookback:
         start_time = parse_lookback(lookback)
+
+    # Normalize candidate names if provided
+    normalized_candidates = {}
+    if candidates:
+        normalized_candidates = {normalize_name(c)[0]: c for c in candidates}
 
     results = []
 
@@ -82,11 +93,14 @@ async def get_markets(
             filtered_contracts = []
             for item in document['data']:
                 contracts = item.get('contracts', [])
-                filtered = [
-                    contract for contract in contracts
-                    if (minimum_price is None or contract['lastTradePrice'] >= minimum_price) and
-                       (maximum_price is None or contract['lastTradePrice'] <= maximum_price)
-                ]
+                filtered = []
+                for contract in contracts:
+                    normalized_contract_name = normalize_name(contract['contractName'])[0]
+                    if (minimum_price is None or contract['lastTradePrice'] >= minimum_price) and \
+                       (maximum_price is None or contract['lastTradePrice'] <= maximum_price):
+                        if not candidates or normalized_contract_name in normalized_candidates:
+                            filtered.append(contract)
+
                 if filtered:
                     item['contracts'] = filtered
                     filtered_contracts.append(item)
