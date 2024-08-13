@@ -77,6 +77,7 @@ async def get_markets(
     results = []
 
     for m in market:
+        print(m)
         collection = get_collection(m)
 
         # Query for data in the specified time range if lookback is provided
@@ -98,7 +99,7 @@ async def get_markets(
                     normalized_contract_name = normalize_name(contract['contractName'])[0]
                     if (minimum_price is None or contract['lastTradePrice'] >= minimum_price) and \
                        (maximum_price is None or contract['lastTradePrice'] <= maximum_price):
-                        if not candidates or normalized_contract_name in normalized_candidates:
+                        if not candidates or any([s for s in normalized_candidates if s in normalized_contract_name]):
                             filtered.append(contract)
 
                 if filtered:
