@@ -95,11 +95,12 @@ async def get_markets(
             # Filter contracts based on price if applicable
             filtered_contracts = []
             for item in document['data']:
-                title = item.get('title', '')
-                similarity = fuzz.ratio(title, eventFilter)
-                print(title, eventFilter, similarity)
-                if similarity < 50 :
-                    continue
+                if eventFilter is not '' or eventFilter is not None :
+                    title = item.get('title', '')
+                    similarity = fuzz.ratio(title, eventFilter)
+                    print(title, eventFilter, similarity)
+                    if similarity < 50 :
+                        continue
                 contracts = item.get('contracts', [])
                 filtered = []
                 for contract in contracts:
