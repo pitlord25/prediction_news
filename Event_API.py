@@ -79,7 +79,6 @@ async def get_markets(
     results = []
 
     for m in market:
-        print(eventFilter)
         collection = get_collection(m)
 
         # Query for data in the specified time range if lookback is provided
@@ -98,7 +97,6 @@ async def get_markets(
                 if eventFilter is not '' and eventFilter is not None :
                     title = item.get('title', '')
                     similarity = fuzz.ratio(title, eventFilter)
-                    print(title, eventFilter, similarity)
                     if similarity < 50 :
                         continue
                 contracts = item.get('contracts', [])
