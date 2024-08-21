@@ -8,19 +8,21 @@ import json
 import re
 import datetime
 from MongoDBManger import MongoDBManager
-import httpx
-
+from bs4 import BeautifulSoup
+import re
 
 def get_predictit_data(timestamp):
     print("getting predictit data...")
     response = requests.get('https://www.predictit.org/api/Browse/FilteredMarkets/3', params=predictit_params, cookies=predictit_cookies, headers=predictit_headers)
     data =  response.json()
+    
     output = []
     for market in data["markets"]:
         temp = {}
         temp["title"] = market["marketName"]
         temp["contracts"] = [{"contractName" : contract["contractName"],
-                        "lastTradePrice": round(contract["lastTradePrice"] * 100, 1)} 
+                        "lastTradePrice": round(contract["lastTradePrice"] * 100, 1),
+                        "contractImage" : contract['contractImageUrl']} 
                         for contract in market["contracts"]]
         temp['totalValue'] = market['totalSharesTraded']
         output.append(temp)
@@ -47,7 +49,8 @@ def get_polymarket_data(timestamp):
         if len(market["markets"]) > 1:
             temp["contracts"] = [{"contractName" : contract["groupItemTitle"],
                             "lastTradePrice": round(float(json.loads(contract["outcomePrices"])[0]) * 100, 1),
-                            "volume" : float(contract['volume'])} 
+                            "volume" : float(contract['volume']),
+                            "contractImage" : contract['image']} 
                             for contract in market["markets"] if 'volume' in contract and 'outcomePrices' in contract]
         else:
             keys = json.loads(market["markets"][0]["outcomes"])
@@ -67,8 +70,30 @@ def get_polymarket_data(timestamp):
 
 def get_manifolds_data(timestamp):
     print("getting manifolds data...")
+    # Step 1: Get the HTML content from the website
+    url = "https://manifold.markets"
+    response = requests.get(url)
+    html_content = response.text
+
+    # Step 2: Parse the HTML content
+    soup = BeautifulSoup(html_content, 'html.parser')
+
+    # Step 3: Find the script tag with the "buildManifest.js" in the src attribute
+    script_tag = soup.find('script', src=re.compile(r'buildManifest\.js'))
+
+    # Step 4: Extract the specific part of the src attribute
+    if script_tag and 'src' in script_tag.attrs:
+        src_value = script_tag['src']
+        match = re.search(r'/_next/static/([^/]+)/_buildManifest\.js', src_value)
+        if match:
+            extracted_string = match.group(1)
+        else:
+            raise ValueError("Pattern not found in src attribute")
+    else:
+        raise ValueError("Script tag with 'buildManifest.js' not found")
+        
     response = requests.get(
-        'https://manifold.markets/_next/data/WU3q8n-2Fp8MXPeCicbwu/election.json',
+        f'https://manifold.markets/_next/data/{extracted_string}/election.json',
         cookies=manifold_cookies,
         headers=manifold_headers,
     )
@@ -79,6 +104,7 @@ def get_manifolds_data(timestamp):
     output = []
 
     for question in questions.keys():
+        print(question)
         temp = {}
         if type(questions[question]) is not dict or "question" not in questions[question].keys():
             continue
