@@ -62,6 +62,7 @@ def get_polymarket_data(timestamp):
         if len(response) == 0 :
             break
         markets.extend(response)
+        time.sleep(0.2)
         cnt += 1
     
     output = []
