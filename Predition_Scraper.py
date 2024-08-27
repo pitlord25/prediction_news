@@ -87,7 +87,7 @@ def get_polymarket_data(timestamp):
         temp['eventURL'] = f"https://polymarket.com/event/{market['slug']}"
         output.append(temp)
     arr = list(range(1, 1001))  # Array with 1000 elements
-    resultList = [output[i:i + 100] for i in range(0, len(output), 100)]
+    resultList = [output[i:i + 1000] for i in range(0, len(output), 1000)]
     for result in resultList :
         db_manager.insert_document("polymarket_collection", {
             "timestamp" : timestamp,
