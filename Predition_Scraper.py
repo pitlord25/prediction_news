@@ -86,11 +86,13 @@ def get_polymarket_data(timestamp):
         temp['totalValue'] = market['volume'] if 'volume' in market else 0
         temp['eventURL'] = f"https://polymarket.com/event/{market['slug']}"
         output.append(temp)
-    
-    db_manager.insert_document("polymarket_collection", {
-        "timestamp" : timestamp,
-        "data" : output
-    })
+    arr = list(range(1, 1001))  # Array with 1000 elements
+    resultList = [output[i:i + 100] for i in range(0, len(output), 100)]
+    for result in resultList :
+        db_manager.insert_document("polymarket_collection", {
+            "timestamp" : timestamp,
+            "data" : result
+        })
 
     end_time = time.time()
     runtime = end_time - start_time
