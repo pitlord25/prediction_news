@@ -47,7 +47,7 @@ def get_polymarket_data(timestamp):
         "archived":"false",
         "closed":"false",
         "order":"volume24hr",
-        "tag_slug" : "politics",
+        # "tag_slug" : "politics",
         "ascending":"false",
         "offset" : 0
     }
