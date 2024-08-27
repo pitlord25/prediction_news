@@ -393,6 +393,7 @@ def get_metaculus_data(timestamp) :
     })
     
 def get_kalshi_data(timestamp):
+    print("getting kalshi data...")
     # Get token via credential 
 
     url = "https://trading-api.kalshi.com/trade-api/v2/login"
@@ -451,6 +452,11 @@ def get_kalshi_data(timestamp):
         temp['eventURL'] = f"https://kalshi.com/markets/{event['event_ticker']}/{event['title'].replace(' ', '-').replace('?', '')}"
         output.append(temp)
 
+    db_manager.insert_document("kalshi_collection", {
+        "timestamp" : timestamp,
+        "data" : output
+    })
+    
     return
 class ScrapingThread(threading.Thread):
     def __init__(self, timer):
