@@ -15,7 +15,7 @@ db = client.prediction_db
 # List of valid markets
 valid_markets = [
     "Predictit", "Polymarket", "Manifolds", "Pinnacle", 
-    "Fairplay", "Betfair", "Smarkets", "Metaculus"
+    "Fairplay", "Betfair", "Smarkets", "Metaculus", "Kalshi"
 ]
 
 def get_collection(market: str) -> Collection:
