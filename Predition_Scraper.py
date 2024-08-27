@@ -25,8 +25,10 @@ def get_predictit_data(timestamp):
                         "contractImage" : contract['contractImageUrl']} 
                         for contract in market["contracts"]]
         temp['totalValue'] = market['totalSharesTraded']
+        temp['eventURL'] = f"https://www.predictit.org/markets/detail/{market['marketId']}/{market['marketUrl']}"
         output.append(temp)
-        
+    
+    print(output)
     db_manager.insert_document("predictit_collection", {
         "timestamp" : timestamp,
         "data" : output
@@ -42,6 +44,7 @@ def get_polymarket_data(timestamp):
     data = response.json()
     
     output = []
+    
     for market in data:
         
         temp = {}
@@ -59,6 +62,7 @@ def get_polymarket_data(timestamp):
                             "lastTradePrice": round(float(contract[1]) * 100, 1)} 
                             for contract in zip(keys, values)]
         temp['totalValue'] = market['volume']
+        temp['eventURL'] = f"https://polymarket.com/event/{market['slug']}"
         output.append(temp)
     
     db_manager.insert_document("polymarket_collection", {
@@ -104,7 +108,6 @@ def get_manifolds_data(timestamp):
     output = []
 
     for question in questions.keys():
-        print(question)
         temp = {}
         if type(questions[question]) is not dict or "question" not in questions[question].keys():
             continue
@@ -389,7 +392,66 @@ def get_metaculus_data(timestamp) :
         "data" : output
     })
     
+def get_kalshi_data(timestamp):
+    # Get token via credential 
 
+    url = "https://trading-api.kalshi.com/trade-api/v2/login"
+
+    headers = {
+        "accept": "application/json",
+        "content-type": "application/json",
+    }
+
+    response = requests.post(url, headers=headers, json={
+        "email" : "xeonDev@outlook.com",
+        "password": "Kmg20030116@"
+        })
+
+    user_id = response.json()['member_id']
+    token = response.json()['token']
+    
+    url = "https://trading-api.kalshi.com/trade-api/v2/events"
+
+    headers = {
+        "accept": "application/json",
+        "Content-Type": "application/json"
+    }
+    
+    eventList = []
+    
+    params = {
+        "with_nested_markets" : "true", 
+        "status" : "open",
+        "limit" : "200"
+    }
+
+    response = requests.get(url, headers=headers, params= params).json()
+    eventList.extend(response['events'])
+    
+    cursor = response['cursor']
+    
+    while(cursor != "") :
+        params['cursor'] = cursor
+        response = requests.get(url, headers=headers, params= params).json()
+        eventList.extend(response['events'])
+        cursor = response['cursor']
+        
+    output = []
+    for event in eventList :
+        temp = {}
+        contractors = event['markets']
+        temp['contracts'] = [
+            {
+                'contractName': item['subtitle'],
+                'lastTradePrice': item["last_price"]
+            }
+            for item in contractors
+        ]
+        temp['title'] = event['title']
+        temp['eventURL'] = f"https://kalshi.com/markets/{event['event_ticker']}/{event['title'].replace(' ', '-').replace('?', '')}"
+        output.append(temp)
+
+    return
 class ScrapingThread(threading.Thread):
     def __init__(self, timer):
         super().__init__()
@@ -439,6 +501,11 @@ class ScrapingThread(threading.Thread):
                 get_metaculus_data(timestamp)
             except Exception as e:
                 print("metaculus failed", e)
+            
+            try:
+                get_kalshi_data(timestamp)
+            except Exception as e:
+                print("kalshi failed", e)            
             
             print("sleeping")
             time.sleep(self.timer)

@@ -59,7 +59,8 @@ async def get_markets(
     maximum_price: Optional[float] = Query(None, ge=0, description="Maximum price"),
     lookback: Optional[str] = Query(None, description="Lookback period (e.g., 3h, 2D)"),
     candidates: Optional[List[str]] = Query(None, description="List of candidate names to filter"),
-    eventFilter: Optional[str] = Query(None, description="Event Filter")
+    eventFilter: Optional[str] = Query(None, description="Event Filter"),
+    eventUrlFilter: Optional[str] = Query(None, description="Event Url Filter")
 ):
     # Validate that each market is in the valid_markets list
     for m in market:
@@ -94,11 +95,17 @@ async def get_markets(
             # Filter contracts based on price if applicable
             filtered_contracts = []
             for item in document['data']:
+                eventUrl = item.get('eventURL')
+                if eventUrlFilter is not '' and eventUrlFilter is not None :
+                    if eventUrl is None or eventUrl != eventUrlFilter :
+                        continue
+    
                 if eventFilter is not '' and eventFilter is not None :
                     title = item.get('title', '')
                     similarity = fuzz.ratio(title, eventFilter)
                     if similarity < 50 :
                         continue
+                    
                 contracts = item.get('contracts', [])
                 filtered = []
                 for contract in contracts:
