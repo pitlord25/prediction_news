@@ -10,6 +10,7 @@ import datetime
 from MongoDBManger import MongoDBManager
 from bs4 import BeautifulSoup
 import re
+start_time = time.time()
 
 def get_predictit_data(timestamp):
     print("getting predictit data...")
@@ -38,13 +39,34 @@ def get_predictit_data(timestamp):
 
 def get_polymarket_data(timestamp):
     print("getting polymarket data...")
+    start_time = time.time()
     # response = requests.post('https://polymarket.com/api/events', params=polymarket_params, cookies=polymarket_cookies, headers=polymarket_headers, json=polymarket_json_data)
-    response = requests.get("https://gamma-api.polymarket.com/events?limit=200&active=true&archived=false&tag_slug=politics&closed=false&order=volume24hr&ascending=false&offset=0")
-    data = response.json()
+    params = {
+        "limit":"100",
+        "active":"true",
+        "archived":"false",
+        "closed":"false",
+        "order":"volume24hr",
+        "tag_slug" : "politics",
+        "ascending":"false",
+        "offset" : 0
+    }
+    response = requests.get("https://gamma-api.polymarket.com/events", params=params)
+    markets = []
+    markets.extend(response.json())
+    cnt = 1
+    while True:
+        params['offset'] = cnt
+        response = requests.get("https://gamma-api.polymarket.com/events", params=params).json()
+        # print(len(markets))
+        if len(response) == 0 :
+            break
+        markets.extend(response)
+        cnt += 1
     
     output = []
     
-    for market in data:
+    for market in markets:
         
         temp = {}
         temp["title"] = market["title"]
@@ -60,7 +82,7 @@ def get_polymarket_data(timestamp):
             temp["contracts"] = [{"contractName" : contract[0],
                             "lastTradePrice": round(float(contract[1]) * 100, 1)} 
                             for contract in zip(keys, values)]
-        temp['totalValue'] = market['volume']
+        temp['totalValue'] = market['volume'] if 'volume' in market else 0
         temp['eventURL'] = f"https://polymarket.com/event/{market['slug']}"
         output.append(temp)
     
@@ -68,6 +90,10 @@ def get_polymarket_data(timestamp):
         "timestamp" : timestamp,
         "data" : output
     })
+
+    end_time = time.time()
+    runtime = end_time - start_time
+    print(f"Runtime: {runtime} seconds")
     # with open("polymarket.json", "w") as f:
     #     json.dump(output, f, indent=4)
 
@@ -467,50 +493,50 @@ class ScrapingThread(threading.Thread):
         while not self.stop_thread.is_set():
             print('called')
             timestamp = datetime.datetime.now()
-            try:
-                get_predictit_data(timestamp)
-            except Exception as e:
-                print("betfair failed", e)
+            # try:
+            #     get_predictit_data(timestamp)
+            # except Exception as e:
+            #     print("betfair failed", e)
             
             try:
                 get_polymarket_data(timestamp)
             except Exception as e:
                 print("polymarket failed", e)
             
-            try:
-                get_manifolds_data(timestamp)
-            except Exception as e:
-                print("manifolds failed", e)
+            # try:
+            #     get_manifolds_data(timestamp)
+            # except Exception as e:
+            #     print("manifolds failed", e)
                 
-            try:
-                get_pinnacle_data(timestamp)
-            except Exception as e:
-                print("pinnacle failed", e)
+            # try:
+            #     get_pinnacle_data(timestamp)
+            # except Exception as e:
+            #     print("pinnacle failed", e)
                 
-            try:
-                get_fairplay_data(timestamp)
-            except Exception as e:
-                print("fairplay failed", e)
+            # try:
+            #     get_fairplay_data(timestamp)
+            # except Exception as e:
+            #     print("fairplay failed", e)
                 
-            try:
-                get_betfair_events(timestamp)
-            except Exception as e:
-                print("betfair failed", e)
+            # try:
+            #     get_betfair_events(timestamp)
+            # except Exception as e:
+            #     print("betfair failed", e)
                 
-            try:
-                get_smarkets_data(timestamp)
-            except Exception as e:
-                print("smarkets failed", e)
+            # try:
+            #     get_smarkets_data(timestamp)
+            # except Exception as e:
+            #     print("smarkets failed", e)
             
-            try:
-                get_metaculus_data(timestamp)
-            except Exception as e:
-                print("metaculus failed", e)
+            # try:
+            #     get_metaculus_data(timestamp)
+            # except Exception as e:
+            #     print("metaculus failed", e)
             
-            try:
-                get_kalshi_data(timestamp)
-            except Exception as e:
-                print("kalshi failed", e)            
+            # try:
+            #     get_kalshi_data(timestamp)
+            # except Exception as e:
+            #     print("kalshi failed", e)            
             
             print("sleeping")
             time.sleep(self.timer)
