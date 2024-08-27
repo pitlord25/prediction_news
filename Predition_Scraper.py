@@ -28,7 +28,6 @@ def get_predictit_data(timestamp):
         temp['eventURL'] = f"https://www.predictit.org/markets/detail/{market['marketId']}/{market['marketUrl']}"
         output.append(temp)
     
-    print(output)
     db_manager.insert_document("predictit_collection", {
         "timestamp" : timestamp,
         "data" : output
