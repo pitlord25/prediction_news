@@ -78,6 +78,8 @@ def get_polymarket_data(timestamp):
                             "contractImage" : contract['image']} 
                             for contract in market["markets"] if 'volume' in contract and 'outcomePrices' in contract]
         else:
+            if 'outcomes' not in market['markets'][0] or 'outcomePrices' not in market['markets'][0] :
+                continue
             keys = json.loads(market["markets"][0]["outcomes"])
             values = json.loads(market["markets"][0]["outcomePrices"])
             temp["contracts"] = [{"contractName" : contract[0],
