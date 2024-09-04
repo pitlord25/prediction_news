@@ -217,7 +217,8 @@ async def main():
         records = {
             'predictit': results[0],
             'betfair': results[1],
-            'polymarket': results[2]
+            'polymarket': results[2],
+            'smarkets' : results[3]
         }
 
         db_manager.insert_document("realtime_collection", {
