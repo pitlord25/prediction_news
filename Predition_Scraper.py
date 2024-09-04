@@ -501,7 +501,7 @@ class ScrapingThread(threading.Thread):
             try:
                 get_predictit_data(timestamp)
             except Exception as e:
-                print("betfair failed", e)
+                print("predictit failed", e)
             
             try:
                 get_polymarket_data(timestamp)
