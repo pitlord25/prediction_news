@@ -214,10 +214,6 @@ async def main():
         # Fetch all data concurrently
         results = await fetch_all_data()
 
-        # Process the results
-        for result in results:
-            print(result)
-
         records = {
             'predictit': results[0],
             'betfair': results[1],
