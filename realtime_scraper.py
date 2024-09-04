@@ -146,7 +146,7 @@ def get_contracts_values_smarkets(market_id, contracts_ids):
     return data
 
 
-def get_smarkets_data():
+async def get_smarkets_data():
     print("getting smarkets data...")
     markets = get_smarkets()
 
