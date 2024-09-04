@@ -176,17 +176,8 @@ def get_smarkets_data():
         output.append(temp)
 
     # json_file_path = "smarkets.json"
-
-    db_manager.insert_document("smarkets_collection", {
-        "timestamp": timestamp,
-        "data": output
-    })
-
-    # Save the dictionary as a JSON file
-    # with open(json_file_path, 'w', encoding='utf-8') as json_file:
-    #     json.dump(output, json_file, ensure_ascii=False, indent=4)
-
-    # print(f"Data has been saved to {json_file_path}")
+    
+    return output
 
 
 # Initialize the MongoDB manager
