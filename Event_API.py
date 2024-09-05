@@ -5,6 +5,7 @@ from pymongo import MongoClient
 from pymongo.collection import Collection
 from datetime import datetime, timedelta
 from fuzzywuzzy import fuzz
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
@@ -13,11 +14,27 @@ app = FastAPI()
 client = MongoClient("mongodb://localhost:27017/")
 db = client.prediction_db
 
+# List of domains that are allowed to make requests to this API
+origins = [
+    "http://localhost",  # if running the frontend locally
+    "http://localhost:3000",  # if frontend is on localhost:3000 (React, Angular, etc.)
+    "https://predictionnews.com",  # if frontend is deployed
+]
+
 # List of valid markets
 valid_markets = [
     "Predictit", "Polymarket", "Manifolds", "Pinnacle",
     "Fairplay", "Betfair", "Smarkets", "Metaculus", "Kalshi"
 ]
+
+# Add CORS middleware to FastAPI app
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # Origins that are allowed to make CORS requests
+    allow_credentials=True,  # Allow cookies to be sent with cross-origin requests
+    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, PUT, DELETE, etc.)
+    allow_headers=["*"],  # Allow all headers in requests
+)
 
 
 def get_collection(market: str) -> Collection:
