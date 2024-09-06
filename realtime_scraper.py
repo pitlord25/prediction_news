@@ -97,7 +97,7 @@ def get_smarkets():
         "id": market["id"],
         "name": market['name']
     } for market in markets]
-
+    
     return markets
 
 
@@ -175,6 +175,7 @@ async def get_smarkets_data():
         output.append(temp)
 
     # json_file_path = "smarkets.json"
+    print(output)
     
     return output
 
@@ -215,8 +216,8 @@ async def main():
 
         records = {
             'predictit': results[0],
-            'betfair': results[1],
-            'polymarket': results[2],
+            'polymarket': results[1],
+            'betfair': results[2],
             'smarkets' : results[3]
         }
 
