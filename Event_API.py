@@ -18,7 +18,8 @@ db = client.prediction_db
 origins = [
     "http://localhost",  # if running the frontend locally
     "http://localhost:3000",  # if frontend is on localhost:3000 (React, Angular, etc.)
-    "https://predictionnews.com",  # if frontend is deployed
+    "https://predictionnews.com",  # if frontend is deployed,
+    "https://njsportsbookreview.com/"
 ]
 
 # List of valid markets
