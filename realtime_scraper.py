@@ -175,9 +175,9 @@ async def get_smarkets_data():
         output.append(temp)
 
     # json_file_path = "smarkets.json"
-    print(output)
+    # print(output)
     
-    return output
+    return output[0]
 
 
 # Initialize the MongoDB manager
