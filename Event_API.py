@@ -107,7 +107,29 @@ async def get_realtime_debates(
     data_cursor = collection.find({}).sort("timestamp", -1)
     # data_cursor = collection.find(query).sort("timestamp", -1)
 
+    results = []
     for document in data_cursor:
+        filtered_contracts = []
+        for item in document['data']:
+
+            contracts = item.get('contracts', [])
+            filtered = []
+            normalized_candidates = ['Trump', 'Kamala', 'Harris']
+            for contract in contracts:
+                normalized_contract_name = normalize_name(
+                    contract['contractName'])[0]
+                if any([s for s in normalized_candidates if s in normalized_contract_name]):
+                    filtered.append(contract)
+                        
+            if filtered:
+                    item['contracts'] = filtered
+                    filtered_contracts.append(item)
+        if filtered_contracts:
+            results.append({
+                "market": m.capitalize(),
+                "timestamp": document['timestamp'],
+                "data": filtered_contracts
+            })
         return {"timestamp": document['timestamp'], "data": document['data']}
 
 
