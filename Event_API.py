@@ -6,8 +6,15 @@ from pymongo.collection import Collection
 from datetime import datetime, timedelta
 from fuzzywuzzy import fuzz
 from fastapi.middleware.cors import CORSMiddleware
+import logging.config
+import yaml
 
 app = FastAPI()
+
+# Load logging config
+with open('logging.yaml', 'r') as f:
+    logging_config = yaml.safe_load(f.read())
+    logging.config.dictConfig(logging_config)
 
 # MongoDB setup
 # Replace with your MongoDB URI if necessary
@@ -88,7 +95,7 @@ async def get_realtime_debates(
     if lookback:
         start_time = parse_lookback(lookback)
     collection = get_collection('realtime')
-    print(collection)
+    
     # Query for data in the specified time range if lookback is provided
     if start_time:
         query = {"timestamp": {"$gte": start_time}}
