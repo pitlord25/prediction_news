@@ -1,20 +1,13 @@
 import re
-from fastapi import FastAPI, Query, HTTPException
+from fastapi import FastAPI, Query, HTTPException, Request
 from typing import List, Optional
 from pymongo import MongoClient
 from pymongo.collection import Collection
 from datetime import datetime, timedelta
 from fuzzywuzzy import fuzz
 from fastapi.middleware.cors import CORSMiddleware
-import logging.config
-import yaml
 
 app = FastAPI()
-
-# Load logging config
-with open('logging.yaml', 'r') as f:
-    logging_config = yaml.safe_load(f.read())
-    logging.config.dictConfig(logging_config)
 
 # MongoDB setup
 # Replace with your MongoDB URI if necessary
@@ -87,9 +80,18 @@ def normalize_name(name: str):
 
 @app.get("/realtime_debates")
 async def get_realtime_debates(
+    request: Request,  # Inject the Request object
     lookback: Optional[str] = Query(
         None, description="Lookback period (e.g., 3h, 2D)"),
 ):
+    # Check for 'X-Forwarded-For' header if behind a proxy
+    x_forwarded_for = request.headers.get('x-forwarded-for')
+    if x_forwarded_for:
+        client_ip = x_forwarded_for.split(',')[0]  # Get the real client IP
+    else:
+        client_ip = request.client.host  # Direct IP if no proxy
+    
+    print(f"Request Client IP : {client_ip}")
     # Calculate the start time if lookback is provided
     start_time = None
     if lookback:
