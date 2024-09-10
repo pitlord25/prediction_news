@@ -17,7 +17,8 @@ db = client.prediction_db
 # List of domains that are allowed to make requests to this API
 origins = [
     "http://localhost",  # if running the frontend locally
-    "http://localhost:3000",  # if frontend is on localhost:3000 (React, Angular, etc.)
+    # if frontend is on localhost:3000 (React, Angular, etc.)
+    "http://localhost:3000",
     "https://predictionnews.com",  # if frontend is deployed,
     "https://njsportsbookreview.com",
 ]
@@ -33,7 +34,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,  # Origins that are allowed to make CORS requests
     allow_credentials=True,  # Allow cookies to be sent with cross-origin requests
-    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, PUT, DELETE, etc.)
+    # Allow all HTTP methods (GET, POST, PUT, DELETE, etc.)
+    allow_methods=["*"],
     allow_headers=["*"],  # Allow all headers in requests
 )
 
@@ -90,25 +92,46 @@ async def get_realtime_debates(
         client_ip = x_forwarded_for.split(',')[0]  # Get the real client IP
     else:
         client_ip = request.headers.get('x-real-ip') or request.client.host
-    
+
     print(f"Request Client IP : {client_ip}")
     # Calculate the start time if lookback is provided
     start_time = None
     # if lookback:
     #     start_time = parse_lookback(lookback)
     collection = get_collection('realtime')
-    
+
     # Query for data in the specified time range if lookback is provided
-    # if start_time:
-    #     query = {"timestamp": {"$gte": start_time}}
-    # else:
-    #     query = {}
+
     # Fetch data from the collection
     data_cursor = collection.find({}).sort("timestamp", -1)
     # data_cursor = collection.find(query).sort("timestamp", -1)
 
     for document in data_cursor:
-        return {"timestamp": document['timestamp'], "data": document['data']}
+        def filter_contracts(contracts):
+            return [contract for contract in contracts if contract['contractName'] in ["Donald Trump", "Kamala Harris"]]
+
+        # Return only the relevant contracts in the response
+        return {
+            "timestamp": document['timestamp'],
+            "data": {
+                "predictit": {
+                    "title": document['data']['predictit'].get('title'),
+                    "contracts": filter_contracts(document['data']['predictit']['contracts'])
+                },
+                "betfair": {
+                    "title": document['data']['betfair'].get('title'),
+                    "contracts": filter_contracts(document['data']['betfair']['contracts'])
+                },
+                "polymarket": {
+                    "title": document['data']['polymarket'].get('title'),
+                    "contracts": filter_contracts(document['data']['polymarket']['contracts'])
+                },
+                "smarkets": {
+                    "title": document['data']['smarkets'].get('title'),
+                    "contracts": filter_contracts(document['data']['smarkets']['contracts'])
+                }
+            }
+        }
 
 
 @app.get("/markets")
