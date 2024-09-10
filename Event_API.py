@@ -81,8 +81,8 @@ def normalize_name(name: str):
 @app.get("/realtime_debates")
 async def get_realtime_debates(
     request: Request,  # Inject the Request object
-    lookback: Optional[str] = Query(
-        None, description="Lookback period (e.g., 3h, 2D)"),
+    # lookback: Optional[str] = Query(
+    #     None, description="Lookback period (e.g., 3h, 2D)"),
 ):
     # Check for 'X-Forwarded-For' header if behind a proxy
     x_forwarded_for = request.headers.get('x-forwarded-for')
@@ -94,17 +94,18 @@ async def get_realtime_debates(
     print(f"Request Client IP : {client_ip}")
     # Calculate the start time if lookback is provided
     start_time = None
-    if lookback:
-        start_time = parse_lookback(lookback)
+    # if lookback:
+    #     start_time = parse_lookback(lookback)
     collection = get_collection('realtime')
     
     # Query for data in the specified time range if lookback is provided
-    if start_time:
-        query = {"timestamp": {"$gte": start_time}}
-    else:
-        query = {}
+    # if start_time:
+    #     query = {"timestamp": {"$gte": start_time}}
+    # else:
+    #     query = {}
     # Fetch data from the collection
-    data_cursor = collection.find(query).sort("timestamp", -1)
+    data_cursor = collection.find({}).sort("timestamp", -1)
+    # data_cursor = collection.find(query).sort("timestamp", -1)
 
     for document in data_cursor:
         return {"timestamp": document['timestamp'], "data": document['data']}
