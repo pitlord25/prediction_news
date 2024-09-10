@@ -89,7 +89,7 @@ async def get_realtime_debates(
     if x_forwarded_for:
         client_ip = x_forwarded_for.split(',')[0]  # Get the real client IP
     else:
-        client_ip = request.client.host  # Direct IP if no proxy
+        client_ip = request.headers.get('x-real-ip') or request.client.host
     
     print(f"Request Client IP : {client_ip}")
     # Calculate the start time if lookback is provided
