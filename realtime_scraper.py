@@ -14,67 +14,80 @@ import json
 
 async def get_predictit_data():
     print("getting predictit data...")
-    # https://www.predictit.org/markets/detail/7456/Who-will-win-the-2024-US-presidential-election
-    response = requests.get('https://www.predictit.org/api/marketdata/markets/7456',
-                            params=predictit_params, cookies=predictit_cookies, headers=predictit_headers)
-    marketData = response.json()
+    
+    try :
+    
+        response = requests.get('https://www.predictit.org/api/marketdata/markets/7456',
+                                params=predictit_params, cookies=predictit_cookies, headers=predictit_headers)
+        marketData = response.json()
 
-    result = {}
-    result["title"] = marketData["name"]
-    result["contracts"] = [{"contractName": contract["name"],
-                            "lastTradePrice": round(contract["lastTradePrice"] * 100, 1),
-                            # "contractImage" : contract['image']
-                            }
-                           for contract in marketData["contracts"]]
-    # result['totalValue'] = marketData['totalSharesTraded']
-    result['eventURL'] = marketData['url']
+        result = {}
+        result["title"] = marketData["name"]
+        result["contracts"] = [{"contractName": contract["name"],
+                                "lastTradePrice": round(contract["lastTradePrice"] * 100, 1),
+                                # "contractImage" : contract['image']
+                                }
+                            for contract in marketData["contracts"]]
+        # result['totalValue'] = marketData['totalSharesTraded']
+        result['eventURL'] = marketData['url']
 
-    return result
+        return result
+    except Exception as e:
+        print(f"Error occured while getting Predictit data : {e}")
+        return {}
 
 
 async def get_betfair_events():
     print("getting betfair data...")
     # print(event_id)
-    result = {}
-    response = requests.get(
-        f'https://ero.betfair.com/www/sports/exchange/readonly/v1/bymarket?_ak=nzIFcwyWhrlwYMrh&alt=json&currencyCode=GBP&locale=en_GB&marketIds=1.176878927&rollupLimit=10&rollupModel=STAKE&types=MARKET_STATE,MARKET_RATES,MARKET_DESCRIPTION,EVENT,RUNNER_DESCRIPTION,RUNNER_STATE,RUNNER_EXCHANGE_PRICES_BEST,RUNNER_METADATA,MARKET_LICENCE,MARKET_LINE_RANGE_INFO',
-    )
-    data = response.json()
-        
-    result["title"] = data["eventTypes"][0]["eventNodes"][0]["marketNodes"][0]["description"]["marketName"]
-    result["contracts"] = [{
-        "contractName": contract["description"]["runnerName"],
-        "lastTradePrice": round(100 / contract["state"]["lastPriceTraded"], 1)
-    } for contract in data["eventTypes"][0]["eventNodes"][0]["marketNodes"][0]["runners"]
-        if "lastPriceTraded" in contract["state"].keys()]
+    try:
+        result = {}
+        response = requests.get(
+            f'https://ero.betfair.com/www/sports/exchange/readonly/v1/bymarket?_ak=nzIFcwyWhrlwYMrh&alt=json&currencyCode=GBP&locale=en_GB&marketIds=1.176878927&rollupLimit=10&rollupModel=STAKE&types=MARKET_STATE,MARKET_RATES,MARKET_DESCRIPTION,EVENT,RUNNER_DESCRIPTION,RUNNER_STATE,RUNNER_EXCHANGE_PRICES_BEST,RUNNER_METADATA,MARKET_LICENCE,MARKET_LINE_RANGE_INFO',
+        )
+        data = response.json()
+            
+        result["title"] = data["eventTypes"][0]["eventNodes"][0]["marketNodes"][0]["description"]["marketName"]
+        result["contracts"] = [{
+            "contractName": contract["description"]["runnerName"],
+            "lastTradePrice": round(100 / contract["state"]["lastPriceTraded"], 1)
+        } for contract in data["eventTypes"][0]["eventNodes"][0]["marketNodes"][0]["runners"]
+            if "lastPriceTraded" in contract["state"].keys()]
 
-    return result
+        return result
+    except Exception as e:
+        print(f"Error occured while getting betfair data: {e}") 
+        return {}
 
 
 async def get_polymarket_data():
     print("getting polymarket data...")
+    
+    try :
+        market = requests.get(
+            "https://gamma-api.polymarket.com/events/903193").json()
 
-    market = requests.get(
-        "https://gamma-api.polymarket.com/events/903193").json()
+        result = {}
+        result["title"] = market["title"]
+        if len(market["markets"]) > 1:
+            result["contracts"] = [{"contractName": contract["groupItemTitle"],
+                                    "lastTradePrice": round(float(json.loads(contract["outcomePrices"])[0]) * 100, 1),
+                                    "volume": float(contract['volume']),
+                                    "contractImage": contract['image']}
+                                for contract in market["markets"] if 'volume' in contract and 'outcomePrices' in contract]
+        else:
+            keys = json.loads(market["markets"][0]["outcomes"])
+            values = json.loads(market["markets"][0]["outcomePrices"])
+            result["contracts"] = [{"contractName": contract[0],
+                                    "lastTradePrice": round(float(contract[1]) * 100, 1)}
+                                for contract in zip(keys, values)]
+        result['totalValue'] = market['volume'] if 'volume' in market else 0
+        result['eventURL'] = f"https://polymarket.com/event/{market['slug']}"
 
-    result = {}
-    result["title"] = market["title"]
-    if len(market["markets"]) > 1:
-        result["contracts"] = [{"contractName": contract["groupItemTitle"],
-                                "lastTradePrice": round(float(json.loads(contract["outcomePrices"])[0]) * 100, 1),
-                                "volume": float(contract['volume']),
-                                "contractImage": contract['image']}
-                               for contract in market["markets"] if 'volume' in contract and 'outcomePrices' in contract]
-    else:
-        keys = json.loads(market["markets"][0]["outcomes"])
-        values = json.loads(market["markets"][0]["outcomePrices"])
-        result["contracts"] = [{"contractName": contract[0],
-                                "lastTradePrice": round(float(contract[1]) * 100, 1)}
-                               for contract in zip(keys, values)]
-    result['totalValue'] = market['volume'] if 'volume' in market else 0
-    result['eventURL'] = f"https://polymarket.com/event/{market['slug']}"
-
-    return result
+        return result
+    except Exception as e :
+        print(f"Error occured while getting polymarket data: {e}")
+        return {}
     # with open("polymarket.json", "w") as f:
     #     json.dump(output, f, indent=4)
 
@@ -147,37 +160,42 @@ def get_contracts_values_smarkets(market_id, contracts_ids):
 
 async def get_smarkets_data():
     print("getting smarkets data...")
-    markets = get_smarkets()
-
-    markets_ids = ",".join([market["id"] for market in markets])
-    contracts = get_contracts_smarkets(markets_ids)
-    # print(contracts)
-    volumes = get_volumes_smarkets(markets_ids)
-
-    output = []
-    for market in markets:
-        temp = {}
-        contracts_ids = ",".join(
-            [contract["id"] for contract in contracts if contract["market_id"] == market["id"]])
-        try:
-            temp["contracts"] = get_contracts_values_smarkets(
-                market["id"], contracts_ids)
-        except Exception as e:
-            print(e)
-            continue
-        for tp in temp["contracts"]:
-            tp["contractName"] = [
-                contract for contract in contracts if contract["id"] == tp["id"]][0]["name"]
-        temp["title"] = [mk["name"] + "-" + mk["description"]
-                         for mk in markets if mk["id"] == market["id"]][0]
-        temp["totalValue"] = [volume["volume"]
-                              for volume in volumes if volume["market_id"] == market["id"]][0]
-        output.append(temp)
-
-    # json_file_path = "smarkets.json"
-    # print(output)
     
-    return output[0]
+    try :
+        markets = get_smarkets()
+
+        markets_ids = ",".join([market["id"] for market in markets])
+        contracts = get_contracts_smarkets(markets_ids)
+        # print(contracts)
+        volumes = get_volumes_smarkets(markets_ids)
+
+        output = []
+        for market in markets:
+            temp = {}
+            contracts_ids = ",".join(
+                [contract["id"] for contract in contracts if contract["market_id"] == market["id"]])
+            try:
+                temp["contracts"] = get_contracts_values_smarkets(
+                    market["id"], contracts_ids)
+            except Exception as e:
+                print(e)
+                continue
+            for tp in temp["contracts"]:
+                tp["contractName"] = [
+                    contract for contract in contracts if contract["id"] == tp["id"]][0]["name"]
+            temp["title"] = [mk["name"] + "-" + mk["description"]
+                            for mk in markets if mk["id"] == market["id"]][0]
+            temp["totalValue"] = [volume["volume"]
+                                for volume in volumes if volume["market_id"] == market["id"]][0]
+            output.append(temp)
+
+        # json_file_path = "smarkets.json"
+        # print(output)
+        
+        return output[0]
+    except Exception as e:
+        print(f"Error occured while getting Smarkets data: {e}")
+        return {}
 
 
 # Initialize the MongoDB manager
