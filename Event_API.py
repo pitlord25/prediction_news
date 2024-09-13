@@ -157,7 +157,7 @@ async def get_market_titles(
         
         results.extend(filtered_data)
     
-    return result
+    return results
 
 @app.get("/markets")
 async def get_markets(
