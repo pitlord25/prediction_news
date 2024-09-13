@@ -57,15 +57,15 @@ def get_polymarket_data(timestamp):
     markets = []
     markets.extend(response.json())
     cnt = 1
-    # while True:
-    #     params['offset'] = cnt
-    #     response = requests.get("https://gamma-api.polymarket.com/events", params=params).json()
-    #     # print(len(markets))
-    #     if len(response) == 0 :
-    #         break
-    #     markets.extend(response)
-    #     time.sleep(0.2)
-    #     cnt += 1
+    while True:
+        params['offset'] = cnt
+        response = requests.get("https://gamma-api.polymarket.com/events", params=params).json()
+        # print(len(markets))
+        if len(response) == 0 :
+            break
+        markets.extend(response)
+        time.sleep(0.2)
+        cnt += 1
     
     output = []
     
@@ -421,7 +421,7 @@ def get_metaculus_data(timestamp) :
                 'contractName': item['sub_question_label'],
                 'lastTradePrice': item["community_prediction"]['full']['q2'] * 100
             }
-            for item in contractors
+            for item in contractors if item['community_prediction'] != None
         ]
         temp['title'] = question['title']
         output.append(temp)
@@ -511,50 +511,50 @@ class ScrapingThread(threading.Thread):
         while not self.stop_thread.is_set():
             print('called')
             timestamp = datetime.datetime.now()
-            # try:
-            #     get_predictit_data(timestamp)
-            # except Exception as e:
-            #     print("predictit failed", e)
+            try:
+                get_predictit_data(timestamp)
+            except Exception as e:
+                print("predictit failed", e)
             
             try:
                 get_polymarket_data(timestamp)
             except Exception as e:
                 print("polymarket failed", e)
             
-            # try:
-            #     get_manifolds_data(timestamp)
-            # except Exception as e:
-            #     print("manifolds failed", e)
+            try:
+                get_manifolds_data(timestamp)
+            except Exception as e:
+                print("manifolds failed", e)
                 
-            # try:
-            #     get_pinnacle_data(timestamp)
-            # except Exception as e:
-            #     print("pinnacle failed", e)
+            try:
+                get_pinnacle_data(timestamp)
+            except Exception as e:
+                print("pinnacle failed", e)
                 
-            # try:
-            #     get_fairplay_data(timestamp)
-            # except Exception as e:
-            #     print("fairplay failed", e)
+            try:
+                get_fairplay_data(timestamp)
+            except Exception as e:
+                print("fairplay failed", e)
                 
-            # try:
-            #     get_betfair_events(timestamp)
-            # except Exception as e:
-            #     print("betfair failed", e)
+            try:
+                get_betfair_events(timestamp)
+            except Exception as e:
+                print("betfair failed", e)
                 
-            # try:
-            #     get_smarkets_data(timestamp)
-            # except Exception as e:
-            #     print("smarkets failed", e)
+            try:
+                get_smarkets_data(timestamp)
+            except Exception as e:
+                print("smarkets failed", e)
             
-            # try:
-            #     get_metaculus_data(timestamp)
-            # except Exception as e:
-            #     print("metaculus failed", e)
+            try:
+                get_metaculus_data(timestamp)
+            except Exception as e:
+                print("metaculus failed", e)
             
-            # try:
-            #     get_kalshi_data(timestamp)
-            # except Exception as e:
-            #     print("kalshi failed", e)            
+            try:
+                get_kalshi_data(timestamp)
+            except Exception as e:
+                print("kalshi failed", e)            
             
             print("sleeping")
             time.sleep(self.timer)
