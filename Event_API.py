@@ -148,7 +148,7 @@ async def get_market_titles(
         )
         
         if not latest_document:
-            return None  # Return None if no document found
+            return {}  # Return None if no document found
 
         filtered_data = [
             {"Provider" : m, "title" : item['title']} for item in latest_document['data']
@@ -157,7 +157,7 @@ async def get_market_titles(
         
         results.extend(filtered_data)
     
-    return results
+    return result
 
 @app.get("/markets")
 async def get_markets(
@@ -210,11 +210,11 @@ async def get_markets(
             filtered_contracts = []
             for item in document['data']:
                 eventUrl = item.get('eventURL')
-                if eventUrlFilter is not '' and eventUrlFilter is not None:
+                if eventUrlFilter != '' and eventUrlFilter is not None:
                     if eventUrl is None or eventUrl != eventUrlFilter:
                         continue
 
-                if eventFilter is not '' and eventFilter is not None:
+                if eventFilter != '' and eventFilter is not None:
                     title = item.get('title', '')
                     similarity = fuzz.ratio(title, eventFilter)
                     if similarity < 30:

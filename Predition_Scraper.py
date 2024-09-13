@@ -23,10 +23,12 @@ def get_predictit_data(timestamp):
         temp["title"] = market["marketName"]
         temp["contracts"] = [{"contractName" : contract["contractName"],
                         "lastTradePrice": round(contract["lastTradePrice"] * 100, 1),
-                        "contractImage" : contract['contractImageUrl']} 
+                        "contractImage" : contract['contractImageUrl'],
+                        "totalVolume" : contract['totalTrades'],
+                        "bestYes" : contract['bestYesPrice'],
+                        "bestNo" : contract['bestNoPrice']} 
                         for contract in market["contracts"]]
-        temp['totalValue'] = market['totalSharesTraded']
-        temp['eventURL'] = f"https://www.predictit.org/markets/detail/{market['marketId']}/{market['marketUrl']}"
+        temp['totalShares'] = market['totalSharesTraded']
         output.append(temp)
     
     db_manager.insert_document("predictit_collection", {
@@ -55,15 +57,15 @@ def get_polymarket_data(timestamp):
     markets = []
     markets.extend(response.json())
     cnt = 1
-    while True:
-        params['offset'] = cnt
-        response = requests.get("https://gamma-api.polymarket.com/events", params=params).json()
-        # print(len(markets))
-        if len(response) == 0 :
-            break
-        markets.extend(response)
-        time.sleep(0.2)
-        cnt += 1
+    # while True:
+    #     params['offset'] = cnt
+    #     response = requests.get("https://gamma-api.polymarket.com/events", params=params).json()
+    #     # print(len(markets))
+    #     if len(response) == 0 :
+    #         break
+    #     markets.extend(response)
+    #     time.sleep(0.2)
+    #     cnt += 1
     
     output = []
     
@@ -74,7 +76,9 @@ def get_polymarket_data(timestamp):
         if len(market["markets"]) > 1:
             temp["contracts"] = [{"contractName" : contract["groupItemTitle"],
                             "lastTradePrice": round(float(json.loads(contract["outcomePrices"])[0]) * 100, 1),
-                            "volume" : float(contract['volume']),
+                            "totalVolume" : float(contract['volume']),
+                            "bestYes" : contract['bestAsk'] if 'bestAsk' in contract else -1,
+                            "bestNo" : contract['bestBid'] if 'bestBid' in contract else -1,
                             "contractImage" : contract['image']} 
                             for contract in market["markets"] if 'volume' in contract and 'outcomePrices' in contract]
         else:
@@ -85,7 +89,8 @@ def get_polymarket_data(timestamp):
             temp["contracts"] = [{"contractName" : contract[0],
                             "lastTradePrice": round(float(contract[1]) * 100, 1)} 
                             for contract in zip(keys, values)]
-        temp['totalValue'] = market['volume'] if 'volume' in market else 0
+        temp['totalBet'] = market['volume'] if 'volume' in market else 0
+        temp['endDate'] = market['endDate']
         temp['eventURL'] = f"https://polymarket.com/event/{market['slug']}"
         output.append(temp)
     arr = list(range(1, 1001))  # Array with 1000 elements
@@ -133,7 +138,7 @@ def get_manifolds_data(timestamp):
     )
 
     data = response.json()
-
+    
     questions = data["pageProps"]
     output = []
 
@@ -264,6 +269,7 @@ def get_betfair_events(timestamp):
     response = requests.get(url, headers=betfair_headers)
     
     data = response.json()
+    
     events_ids = [event["marketId"] for event in data["eventTypes"][0]["eventNodes"][0]["marketNodes"]]
     output = []
     # print(events_ids)
@@ -276,9 +282,14 @@ def get_betfair_events(timestamp):
         data = response.json()
             
         temp["title"] = data["eventTypes"][0]["eventNodes"][0]["marketNodes"][0]["description"]["marketName"]
+        temp["endDate"] = data["eventTypes"][0]["eventNodes"][0]["marketNodes"][0]["description"]["suspendTime"]
+        temp["totalBet"] = data["eventTypes"][0]["eventNodes"][0]["marketNodes"][0]["state"]["totalMatched"]
+        
         temp["contracts"] = [{
             "contractName": contract["description"]["runnerName"],
-            "lastTradePrice": round(100 / contract["state"]["lastPriceTraded"], 1)
+            "lastTradePrice": round(100 / contract["state"]["lastPriceTraded"], 1),
+            "bestYes" : contract["exchange"]["availableToBack"][0]['price'] if "availableToBack" in contract["exchange"] else -1,
+            "bestNo" : contract["exchange"]["availableToLay"][0]['price'] if "availableToLay" in contract["exchange"] else -1
             } for contract in data["eventTypes"][0]["eventNodes"][0]["marketNodes"][0]["runners"]
             if "lastPriceTraded" in contract["state"].keys()]
         output.append(temp)
@@ -362,7 +373,6 @@ def get_smarkets_data(timestamp):
 
     markets_ids = ",".join([market["id"] for market in markets])
     contracts = get_contracts_smarkets(markets_ids)
-    # print(contracts)
     volumes = get_volumes_smarkets(markets_ids)
 
     output = []
@@ -377,7 +387,7 @@ def get_smarkets_data(timestamp):
         for tp in temp["contracts"]:
             tp["contractName"] = [contract for contract in contracts if contract["id"] == tp["id"]][0]["name"]
         temp["title"] = [mk["name"] + "-" + mk["description"] for mk in markets if mk["id"] == market["id"]][0]
-        temp["totalValue"] = [volume["volume"] for volume in volumes if volume["market_id"] == market["id"]][0]
+        temp["totalBet"] = [volume["volume"] for volume in volumes if volume["market_id"] == market["id"]][0]
         output.append(temp)
 
     # json_file_path = "smarkets.json"
@@ -473,11 +483,15 @@ def get_kalshi_data(timestamp):
         temp['contracts'] = [
             {
                 'contractName': item['subtitle'],
-                'lastTradePrice': item["last_price"]
+                'lastTradePrice': item["last_price"],
+                "totalVolume" : item['volume'],
+                "bestYes" : item['yes_ask'],
+                "bestNo" : item['no_ask']
             }
             for item in contractors
         ]
         temp['title'] = event['title']
+        temp['endDate'] = contractors[0]['expiration_time']
         temp['eventURL'] = f"https://kalshi.com/markets/{event['event_ticker']}/{event['title'].replace(' ', '-').replace('?', '')}"
         output.append(temp)
 
@@ -497,50 +511,50 @@ class ScrapingThread(threading.Thread):
         while not self.stop_thread.is_set():
             print('called')
             timestamp = datetime.datetime.now()
-            try:
-                get_predictit_data(timestamp)
-            except Exception as e:
-                print("predictit failed", e)
+            # try:
+            #     get_predictit_data(timestamp)
+            # except Exception as e:
+            #     print("predictit failed", e)
             
             try:
                 get_polymarket_data(timestamp)
             except Exception as e:
                 print("polymarket failed", e)
             
-            try:
-                get_manifolds_data(timestamp)
-            except Exception as e:
-                print("manifolds failed", e)
+            # try:
+            #     get_manifolds_data(timestamp)
+            # except Exception as e:
+            #     print("manifolds failed", e)
                 
-            try:
-                get_pinnacle_data(timestamp)
-            except Exception as e:
-                print("pinnacle failed", e)
+            # try:
+            #     get_pinnacle_data(timestamp)
+            # except Exception as e:
+            #     print("pinnacle failed", e)
                 
-            try:
-                get_fairplay_data(timestamp)
-            except Exception as e:
-                print("fairplay failed", e)
+            # try:
+            #     get_fairplay_data(timestamp)
+            # except Exception as e:
+            #     print("fairplay failed", e)
                 
-            try:
-                get_betfair_events(timestamp)
-            except Exception as e:
-                print("betfair failed", e)
+            # try:
+            #     get_betfair_events(timestamp)
+            # except Exception as e:
+            #     print("betfair failed", e)
                 
-            try:
-                get_smarkets_data(timestamp)
-            except Exception as e:
-                print("smarkets failed", e)
+            # try:
+            #     get_smarkets_data(timestamp)
+            # except Exception as e:
+            #     print("smarkets failed", e)
             
-            try:
-                get_metaculus_data(timestamp)
-            except Exception as e:
-                print("metaculus failed", e)
+            # try:
+            #     get_metaculus_data(timestamp)
+            # except Exception as e:
+            #     print("metaculus failed", e)
             
-            try:
-                get_kalshi_data(timestamp)
-            except Exception as e:
-                print("kalshi failed", e)            
+            # try:
+            #     get_kalshi_data(timestamp)
+            # except Exception as e:
+            #     print("kalshi failed", e)            
             
             print("sleeping")
             time.sleep(self.timer)
