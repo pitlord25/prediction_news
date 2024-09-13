@@ -103,35 +103,36 @@ async def get_realtime_debates(
     # Query for data in the specified time range if lookback is provided
 
     # Fetch data from the collection
-    data_cursor = collection.find({}).sort("timestamp", -1)
+    latestDocument = collection.find_one({}, sort=[("timestamp", -1)])
+    print(latestDocument)
     # data_cursor = collection.find(query).sort("timestamp", -1)
 
-    for document in data_cursor:
-        def filter_contracts(contracts):
-            return [contract for contract in contracts if contract['contractName'] in ["Donald Trump", "Kamala Harris"]]
+        
+    def filter_contracts(contracts):
+        return [contract for contract in contracts if contract['contractName'] in ["Donald Trump", "Kamala Harris"]]
 
-        # Return only the relevant contracts in the response
-        return {
-            "timestamp": document['timestamp'],
-            "data": {
-                "predictit": {
-                    "title": document['data']['predictit'].get('title'),
-                    "contracts": filter_contracts(document['data']['predictit']['contracts'])
-                },
-                "betfair": {
-                    "title": document['data']['betfair'].get('title'),
-                    "contracts": filter_contracts(document['data']['betfair']['contracts'])
-                },
-                "polymarket": {
-                    "title": document['data']['polymarket'].get('title'),
-                    "contracts": filter_contracts(document['data']['polymarket']['contracts'])
-                },
-                "smarkets": {
-                    "title": document['data']['smarkets'].get('title'),
-                    "contracts": filter_contracts(document['data']['smarkets']['contracts'])
-                }
+    # Return only the relevant contracts in the response
+    return {
+        "timestamp": latestDocument['timestamp'],
+        "data": {
+            "predictit": {
+                "title": latestDocument['data']['predictit'].get('title'),
+                "contracts": filter_contracts(latestDocument['data']['predictit']['contracts'])
+            },
+            "betfair": {
+                "title": latestDocument['data']['betfair'].get('title'),
+                "contracts": filter_contracts(latestDocument['data']['betfair']['contracts'])
+            },
+            "polymarket": {
+                "title": latestDocument['data']['polymarket'].get('title'),
+                "contracts": filter_contracts(latestDocument['data']['polymarket']['contracts'])
+            },
+            "smarkets": {
+                "title": latestDocument['data']['smarkets'].get('title'),
+                "contracts": filter_contracts(latestDocument['data']['smarkets']['contracts'])
             }
         }
+    }
 
 # @app.get("/market_titles")
 # async def get_market_titles(
