@@ -104,7 +104,6 @@ async def get_realtime_debates(
 
     # Fetch data from the collection
     latestDocument = collection.find_one({}, sort=[("timestamp", -1)])
-    print(latestDocument)
     # data_cursor = collection.find(query).sort("timestamp", -1)
 
         
