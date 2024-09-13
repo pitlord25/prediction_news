@@ -82,18 +82,9 @@ def normalize_name(name: str):
 
 @app.get("/realtime_debates")
 async def get_realtime_debates(
-    request: Request,  # Inject the Request object
     lookback: Optional[str] = Query(
         None, description="Lookback period (e.g., 3h, 2D)"),
 ):
-    # Check for 'X-Forwarded-For' header if behind a proxy
-    x_forwarded_for = request.headers.get('x-forwarded-for')
-    if x_forwarded_for:
-        client_ip = x_forwarded_for.split(',')[0]  # Get the real client IP
-    else:
-        client_ip = request.headers.get('x-real-ip') or request.client.host
-
-    print(f"Request Client IP : {client_ip}")
     # Calculate the start time if lookback is provided
     start_time = None
     # if lookback:
