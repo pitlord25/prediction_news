@@ -83,8 +83,8 @@ def normalize_name(name: str):
 @app.get("/realtime_debates")
 async def get_realtime_debates(
     request: Request,  # Inject the Request object
-    # lookback: Optional[str] = Query(
-    #     None, description="Lookback period (e.g., 3h, 2D)"),
+    lookback: Optional[str] = Query(
+        None, description="Lookback period (e.g., 3h, 2D)"),
 ):
     # Check for 'X-Forwarded-For' header if behind a proxy
     x_forwarded_for = request.headers.get('x-forwarded-for')
