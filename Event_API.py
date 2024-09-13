@@ -133,31 +133,31 @@ async def get_realtime_debates(
         }
     }
 
-# @app.get("/market_titles")
-# async def get_market_titles(
-#     keyword: str = Query(..., description="Event Filter")
-# ):
-#     results = []
+@app.get("/market_titles")
+async def get_market_titles(
+    keyword: str = Query(..., description="Event Filter")
+):
+    results = []
 
-#     for m in valid_markets:
-#         collection = get_collection(m)
-#         # Query the latest document based on the timestamp
-#         latest_document = collection.find_one(
-#             {},  # No condition, return all documents
-#             sort=[('timestamp', -1)]  # Sort by 'timestamp' in descending order
-#         )
+    for m in valid_markets:
+        collection = get_collection(m)
+        # Query the latest document based on the timestamp
+        latest_document = collection.find_one(
+            {},  # No condition, return all documents
+            sort=[('timestamp', -1)]  # Sort by 'timestamp' in descending order
+        )
         
-#         if not latest_document:
-#             return {}  # Return None if no document found
+        if not latest_document:
+            return {}  # Return None if no document found
 
-#         filtered_data = [
-#             {"Provider" : m, "title" : item['title']} for item in latest_document['data']
-#             if keyword.lower() in item['title'].lower()
-#         ]
+        filtered_data = [
+            {"Provider" : m, "title" : item['title']} for item in latest_document['data']
+            if keyword.lower() in item['title'].lower()
+        ]
         
-#         results.extend(filtered_data)
+        results.extend(filtered_data)
     
-#     return results
+    return results
 
 @app.get("/markets")
 async def get_markets(
