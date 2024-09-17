@@ -558,50 +558,50 @@ class ScrapingThread(threading.Thread):
         while not self.stop_thread.is_set():
             print('called')
             timestamp = datetime.datetime.now()
-            # try:
-            #     get_predictit_data(timestamp)
-            # except Exception as e:
-            #     print("predictit failed", e)
+            try:
+                get_predictit_data(timestamp)
+            except Exception as e:
+                print("predictit failed", e)
 
-            # try:
-            #     get_polymarket_data(timestamp)
-            # except Exception as e:
-            #     print("polymarket failed", e)
+            try:
+                get_polymarket_data(timestamp)
+            except Exception as e:
+                print("polymarket failed", e)
 
             try:
                 get_manifolds_data(timestamp)
             except Exception as e:
                 print("manifolds failed", e)
 
-            # try:
-            #     get_pinnacle_data(timestamp)
-            # except Exception as e:
-            #     print("pinnacle failed", e)
+            try:
+                get_pinnacle_data(timestamp)
+            except Exception as e:
+                print("pinnacle failed", e)
 
-            # try:
-            #     get_fairplay_data(timestamp)
-            # except Exception as e:
-            #     print("fairplay failed", e)
+            try:
+                get_fairplay_data(timestamp)
+            except Exception as e:
+                print("fairplay failed", e)
 
-            # try:
-            #     get_betfair_events(timestamp)
-            # except Exception as e:
-            #     print("betfair failed", e)
+            try:
+                get_betfair_events(timestamp)
+            except Exception as e:
+                print("betfair failed", e)
 
-            # try:
-            #     get_smarkets_data(timestamp)
-            # except Exception as e:
-            #     print("smarkets failed", e)
+            try:
+                get_smarkets_data(timestamp)
+            except Exception as e:
+                print("smarkets failed", e)
 
-            # try:
-            #     get_metaculus_data(timestamp)
-            # except Exception as e:
-            #     print("metaculus failed", e)
+            try:
+                get_metaculus_data(timestamp)
+            except Exception as e:
+                print("metaculus failed", e)
 
-            # try:
-            #     get_kalshi_data(timestamp)
-            # except Exception as e:
-            #     print("kalshi failed", e)
+            try:
+                get_kalshi_data(timestamp)
+            except Exception as e:
+                print("kalshi failed", e)
 
             print("sleeping")
             time.sleep(self.timer)
