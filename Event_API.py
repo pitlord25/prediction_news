@@ -73,6 +73,25 @@ def parse_lookback(lookback: str) -> datetime:
         # Approximate 1 year as 365 days
         return now - timedelta(days=365 * amount)
 
+# Helper function to parse interval string (e.g., "1h", "1D")
+def parse_interval(interval: str) -> timedelta:
+    match = re.match(r"(\d+)([hDWM])", interval)
+    if not match:
+        raise HTTPException(status_code=400, detail="Invalid interval format. Use '1h', '1D', '1M', etc.")
+    
+    amount, unit = int(match.group(1)), match.group(2)
+    if unit == 'h':
+        return timedelta(hours=amount)
+    elif unit == 'D':
+        return timedelta(days=amount)
+    elif unit == 'W':
+        return timedelta(weeks=amount)
+    elif unit == 'M':
+        # For simplicity, we'll treat 1M as 30 days
+        return timedelta(days=30 * amount)
+    else:
+        raise HTTPException(status_code=400, detail="Invalid interval unit. Use 'h', 'D', 'W', or 'M'.")
+
 
 def normalize_name(name: str):
     """Normalize the name by removing non-alphanumeric characters, spaces, and converting to lowercase."""
@@ -149,6 +168,63 @@ async def get_market_titles(
         results.extend(filtered_data)
     
     return results
+
+@app.get("/price_history")
+async def get_market_price_history(
+    provider : str = Query(..., description='Event Provdier'),
+    title : str = Query(..., description = 'Market Title'),
+    start_date : datetime = Query(..., description = "Start Datetime"),
+    end_date : datetime = Query(..., description = 'End Datetime'),
+    contractor_name : Optional[str] = Query(None, description="Name of contractor"),
+    interval : str = Query(..., description = 'Time interval to fetch data')
+) :
+    # Parse the interval string (e.g., "1h", "1D")
+    interval_delta = parse_interval(interval)
+    if provider.capitalize() not in valid_markets:
+        raise HTTPException(status_code=400, detail=f"Invalid market: {
+                            provider}. Must be one of {valid_markets}")
+        
+    collection = get_collection(normalize_name(provider)[0])
+    
+    # Query for data in the specified time range if lookback is provided
+    query = {
+        "timestamp": {"$gte": start_date, "$lte": end_date},
+        "data.title": title,
+    }
+    
+    # Fetch data from the collection
+    data_cursor = collection.find(query).sort("timestamp", -1)
+    
+    result = []
+    grouped_data = {}
+    # If no data found, raise an exception
+    for document in data_cursor:
+        timestamp = document['timestamp']
+        # Group by intervals
+        bucket_time = (timestamp - start_date) // interval_delta * interval_delta + start_date
+
+        if bucket_time not in grouped_data:
+            grouped_data[bucket_time] = {}
+
+        for market in document['data']:
+            if market['title'] == title:
+                for contract in market['contracts']:
+                    if contractor_name is None or contract['contractName'] == contractor_name:
+                        if contract['contractName'] not in grouped_data[bucket_time]:
+                            grouped_data[bucket_time][contract['contractName']] = []
+                        grouped_data[bucket_time][contract['contractName']].append(contract['lastTradePrice'])
+
+    # Calculate the average price for each bucket
+    for bucket_time, contracts in grouped_data.items():
+        for contractor, prices in contracts.items():
+            avg_price = sum(prices) / len(prices)  # Calculate average price for this contractor in the interval
+            result.append({
+                "timestamp": bucket_time,
+                "contractor_name": contractor,
+                "last_trade_price": avg_price
+            })
+
+    return result
 
 @app.get("/markets")
 async def get_markets(
