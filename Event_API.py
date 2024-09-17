@@ -308,7 +308,6 @@ async def get_market_price_history(
                 else :
                     grouped_data[bucket_time]['total_bet'] = total_bet
                     
-    print(grouped_data)
     # Calculate the average price for each bucket
     for bucket_time, details in grouped_data.items():
         contracts = details['contracts']
