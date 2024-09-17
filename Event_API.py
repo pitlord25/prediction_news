@@ -171,6 +171,65 @@ async def get_market_titles(
     
     return results
 
+@app.get("/debate_history")
+async def get_realtime_debate_history(
+    provider : str = Query(..., description='Event Provdier'),
+    start_date : datetime = Query(..., description = "Start Datetime"),
+    end_date : datetime = Query(..., description = 'End Datetime'),
+    interval : str = Query(..., description = 'Time interval to fetch data')
+) :
+    # Validate the provider
+    if provider not in ['predictit', 'betfair', 'smarkets', 'polymarket']:
+        raise HTTPException(status_code=400, detail="Invalid provider")
+
+    # Build query for MongoDB
+    query = {
+        "timestamp": {
+            "$gte": start_date,
+            "$lte": end_date
+        }
+    }
+
+    collection = get_collection('realtime')
+    
+    # Fetch relevant data from the database
+    try:
+        results = list(collection.find(query))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="Database error: " + str(e))
+
+    # Filter data by contractor name (if provided) and specific contractors ("Trump" or "Kamala")
+    price_history = []
+    for result in results:
+        data = result.get('data', {}).get(provider, {})
+        title = data.get('title', '')
+        contracts = data.get('contracts', [])
+
+        filtered_contracts = [
+            {
+                "contractName": contract['contractName'],
+                "lastTradePrice": contract['lastTradePrice'],
+                "timestamp": result['timestamp']
+            }
+            for contract in contracts
+            if "Donald Trump" in contract['contractName'] or "Kamala Harris" in contract['contractName']
+        ]
+
+        if filtered_contracts:
+            price_history.append(filtered_contracts)
+
+    # If no data found
+    if not price_history:
+        raise HTTPException(status_code=404, detail="No price history found for the given query")
+
+    return {
+        "provider": provider,
+        "start_date": start_date,
+        "end_date": end_date,
+        "interval": interval,
+        "price_history": price_history
+    }
+
 @app.get("/price_history")
 async def get_market_price_history(
     provider : str = Query(..., description='Event Provdier'),
