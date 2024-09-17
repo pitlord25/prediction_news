@@ -295,7 +295,13 @@ async def get_market_price_history(
                             total_shares_traded += contract['totalVolume'] if 'totalVolume' in contract else 0  # Sum totalVolume across contracts
 
                 if normalized_provider == 'predictit' :
-                    grouped_data[bucket_time]['totalSharesTraded'] = market['totalTraded'] if 'totalTraded' in market else 0
+                    if 'totalShares' in market :
+                        total_shares_traded = market['totalShares']
+                    elif 'totalValue' in market :
+                        total_shares_traded = market['totalValue']
+                    else :
+                        total_shares_traded = 0
+                    grouped_data[bucket_time]['totalSharesTraded'] = total_shares_traded
                 # After looping through contracts, if it's kalshi, set totalSharesTraded for the whole market
                 elif normalized_provider == 'kalshi':
                     grouped_data[bucket_time]['totalSharesTraded'] = total_shares_traded  # Set the totalSharesTraded for each contractor
