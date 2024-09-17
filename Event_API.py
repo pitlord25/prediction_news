@@ -21,6 +21,7 @@ origins = [
     "http://localhost:3000",
     "https://predictionnews.com",  # if frontend is deployed,
     "https://njsportsbookreview.com",
+    "https://stage.predictionnews.com"
 ]
 
 # List of valid markets
@@ -172,7 +173,7 @@ async def get_market_titles(
 @app.get("/price_history")
 async def get_market_price_history(
     provider : str = Query(..., description='Event Provdier'),
-    title : str = Query(..., description = 'Market Title'),
+    title : str = Query(..., description = 'Title of the event'),
     start_date : datetime = Query(..., description = "Start Datetime"),
     end_date : datetime = Query(..., description = 'End Datetime'),
     contractor_name : Optional[str] = Query(None, description="Name of contractor"),
