@@ -149,6 +149,7 @@ async def get_market_titles(
     keyword: str = Query(..., description="Event Filter")
 ):
     results = []
+    print("....")
 
     for m in valid_markets:
         collection = get_collection(m)
@@ -198,7 +199,6 @@ async def get_market_price_history(
     
     result = []
     grouped_data = {}
-    # If no data found, raise an exception
     for document in data_cursor:
         timestamp = document['timestamp']
         # Group by intervals
@@ -209,20 +209,28 @@ async def get_market_price_history(
 
         for market in document['data']:
             if market['title'] == title:
+                total_bet = market.get('totalBet')  # Get totalBet if it exists
+                if(total_bet == None) :
+                    total_bet = market.get('totalValue')
                 for contract in market['contracts']:
                     if contractor_name is None or contract['contractName'] == contractor_name:
                         if contract['contractName'] not in grouped_data[bucket_time]:
-                            grouped_data[bucket_time][contract['contractName']] = []
-                        grouped_data[bucket_time][contract['contractName']].append(contract['lastTradePrice'])
+                            grouped_data[bucket_time][contract['contractName']] = {
+                                "prices": [],
+                                "total_bet": total_bet  # Capture the total bet at the market level
+                            }
+                        grouped_data[bucket_time][contract['contractName']]['prices'].append(contract['lastTradePrice'])
 
     # Calculate the average price for each bucket
     for bucket_time, contracts in grouped_data.items():
-        for contractor, prices in contracts.items():
+        for contractor, contract_data in contracts.items():
+            prices = contract_data['prices']
             avg_price = sum(prices) / len(prices)  # Calculate average price for this contractor in the interval
             result.append({
                 "timestamp": bucket_time,
                 "contractor_name": contractor,
-                "last_trade_price": avg_price
+                "last_trade_price": avg_price,
+                "totalBet": contract_data['total_bet']  # Return totalBet if it exists
             })
 
     return result
