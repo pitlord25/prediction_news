@@ -237,15 +237,21 @@ async def get_market_price_history(
     start_date : datetime = Query(..., description = "Start Datetime"),
     end_date : datetime = Query(..., description = 'End Datetime'),
     contractor_name : Optional[str] = Query(None, description="Name of contractor"),
-    interval : str = Query(..., description = 'Time interval to fetch data')
+    interval: str = Query(..., description='Time interval to fetch data (e.g., "1h", "1D", "1M")'),
+    value_type: str = Query(..., description="Value type to fetch ('average' or 'final')")  # New parameter
 ) :
     # Parse the interval string (e.g., "1h", "1D")
     interval_delta = parse_interval(interval)
     if provider.capitalize() not in valid_markets:
         raise HTTPException(status_code=400, detail=f"Invalid market: {
                             provider}. Must be one of {valid_markets}")
+    
+    if value_type != 'average' and value_type != 'final':
+        raise HTTPException(status_code=400, detail="Invalid value_type. Use 'average' or 'final'.")
         
-    collection = get_collection(normalize_name(provider)[0])
+    
+    normalized_provider = normalize_name(provider)[0]
+    collection = get_collection(normalized_provider)
     
     # Query for data in the specified time range if lookback is provided
     query = {
@@ -264,34 +270,67 @@ async def get_market_price_history(
         bucket_time = (timestamp - start_date) // interval_delta * interval_delta + start_date
 
         if bucket_time not in grouped_data:
-            grouped_data[bucket_time] = {}
+            grouped_data[bucket_time] = {
+                "contracts" : {}
+            }
 
         for market in document['data']:
             if market['title'] == title:
                 total_bet = market.get('totalBet')  # Get totalBet if it exists
                 if(total_bet == None) :
                     total_bet = market.get('totalValue')
+                
+                # Initialize totalSharesTraded if provider is kalshi
+                total_shares_traded = 0
+                
                 for contract in market['contracts']:
                     if contractor_name is None or contract['contractName'] == contractor_name:
                         if contract['contractName'] not in grouped_data[bucket_time]:
-                            grouped_data[bucket_time][contract['contractName']] = {
+                            grouped_data[bucket_time]['contracts'][contract['contractName']] = {
                                 "prices": [],
-                                "total_bet": total_bet  # Capture the total bet at the market level
                             }
-                        grouped_data[bucket_time][contract['contractName']]['prices'].append(contract['lastTradePrice'])
+                        grouped_data[bucket_time]['contracts'][contract['contractName']]['prices'].append(contract['lastTradePrice'])
+                        # Special logic for kalshi provider to calculate totalSharesTraded
+                        if normalized_provider == 'kalshi':
+                            total_shares_traded += contract['totalVolume'] if 'totalVolume' in contract else 0  # Sum totalVolume across contracts
 
+                if normalized_provider == 'predictit' :
+                    grouped_data[bucket_time]['totalSharesTraded'] = market['totalTraded'] if 'totalTraded' in market else 0
+                # After looping through contracts, if it's kalshi, set totalSharesTraded for the whole market
+                elif normalized_provider == 'kalshi':
+                    grouped_data[bucket_time]['totalSharesTraded'] = total_shares_traded  # Set the totalSharesTraded for each contractor
+                else :
+                    grouped_data[bucket_time]['total_bet'] = total_bet
+                    
+    print(grouped_data)
     # Calculate the average price for each bucket
-    for bucket_time, contracts in grouped_data.items():
+    for bucket_time, details in grouped_data.items():
+        contracts = details['contracts']
+        contractors = []
         for contractor, contract_data in contracts.items():
             prices = contract_data['prices']
-            avg_price = sum(prices) / len(prices)  # Calculate average price for this contractor in the interval
-            result.append({
-                "timestamp": bucket_time,
+
+            if value_type == 'average':
+                value = sum(prices) / len(prices)  # Calculate average price for this contractor in the interval
+            elif value_type == 'final':
+                value = prices[-1]  # Get the latest (final) price in the interval
+
+            contractors.append({
                 "contractor_name": contractor,
-                "last_trade_price": avg_price,
-                "totalBet": contract_data['total_bet']  # Return totalBet if it exists
+                "last_trade_price": value,
             })
 
+        temp = {
+            "timestamp": bucket_time,
+            "contractor" : contractors
+        }
+            
+        if normalized_provider == 'predictit' or normalized_provider == 'kalshi' :
+            temp['totalSharesTraded'] = details['totalSharesTraded']
+        else :
+            temp['totalBet'] = details['total_bet']
+            
+        result.append(temp)
     return result
 
 @app.get("/markets")
