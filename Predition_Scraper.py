@@ -88,7 +88,6 @@ def get_polymarket_data(timestamp):
     output = []
 
     for market in markets:
-
         temp = {}
         temp["title"] = market["title"]
         if len(market["markets"]) > 1:
@@ -108,7 +107,7 @@ def get_polymarket_data(timestamp):
                                   "lastTradePrice": round(float(contract[1]) * 100, 1)}
                                  for contract in zip(keys, values)]
         temp['totalBet'] = market['volume'] if 'volume' in market else 0
-        temp['endDate'] = market['endDate']
+        temp['endDate'] = market['endDate'] if 'endDate' in market else ''
         temp['eventURL'] = f"https://polymarket.com/event/{market['slug']}"
         output.append(temp)
     arr = list(range(1, 1001))  # Array with 1000 elements
