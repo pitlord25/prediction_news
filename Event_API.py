@@ -140,6 +140,10 @@ async def get_realtime_debates(
             "smarkets": {
                 "title": latestDocument['data']['smarkets'].get('title'),
                 "contracts": filter_contracts(latestDocument['data']['smarkets']['contracts'])
+            },
+            "kalshi": {
+                "title": latestDocument['data']['kalshi'].get('title'),
+                "contracts": filter_contracts(latestDocument['data']['kalshi']['contracts'])
             }
         }
     }
