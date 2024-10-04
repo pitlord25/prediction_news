@@ -197,6 +197,49 @@ async def get_smarkets_data():
         print(f"Error occured while getting Smarkets data: {e}")
         return {}
 
+async def get_kalshi_data():
+    print("getting kalshi data...")
+    
+    try :
+        eventList = []
+        
+        params = {
+            "with_nested_markets": "true",
+            "status": "open",
+            "limit": "200"
+        }
+        
+        headers = {
+            "accept": "application/json",
+            "Content-Type": "application/json"
+        }
+        
+        url = "https://api.elections.kalshi.com/trade-api/v2/events/PRES-2024"
+        event = requests.get(url, headers=headers, params=params).json()
+        
+        temp = {}
+        contractors = event['event']['markets']
+        
+        temp['contracts'] = [
+            {
+                'contractName': item['yes_sub_title'],
+                'lastTradePrice': item["last_price"],
+                "totalVolume": item['volume'],
+                "bestYes": item['yes_ask'],
+                "bestNo": item['no_ask']
+            }
+            for item in contractors
+        ]
+        temp['title'] = event['event']['title']
+        temp['endDate'] = contractors[0]['expiration_time']
+
+        # json_file_path = "smarkets.json"
+        # print(output)
+        
+        return temp
+    except Exception as e:
+        print(f"Error occured while getting Kalshi data: {e}")
+        return {}
 
 # Initialize the MongoDB manager
 db_manager = MongoDBManager()
@@ -216,9 +259,10 @@ async def fetch_all_data():
     polymarket_task = asyncio.create_task(get_polymarket_data())
     betfair_task = asyncio.create_task(get_betfair_events())
     smarkets_task = asyncio.create_task(get_smarkets_data())
+    kalshi_task = asyncio.create_task(get_kalshi_data())
 
     # Run all tasks concurrently and wait for all to complete
-    results = await asyncio.gather(predictit_task, polymarket_task, betfair_task, smarkets_task)
+    results = await asyncio.gather(predictit_task, polymarket_task, betfair_task, smarkets_task, kalshi_task)
 
     return results
 
@@ -236,7 +280,8 @@ async def main():
             'predictit': results[0],
             'polymarket': results[1],
             'betfair': results[2],
-            'smarkets' : results[3]
+            'smarkets' : results[3],
+            'kalshi' : results[4],
         }
 
         db_manager.insert_document("realtime_collection", {
