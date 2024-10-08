@@ -397,10 +397,14 @@ async def get_markets(
                     if eventUrl is None or eventUrl != eventUrlFilter:
                         continue
 
+                # if eventFilter != '' and eventFilter is not None:
+                #     title = item.get('title', '')
+                #     similarity = fuzz.ratio(title, eventFilter)
+                #     if similarity < 30:
+                #         continue
                 if eventFilter != '' and eventFilter is not None:
                     title = item.get('title', '')
-                    similarity = fuzz.ratio(title, eventFilter)
-                    if similarity < 30:
+                    if eventFilter not in title :
                         continue
 
                 contracts = item.get('contracts', [])
