@@ -264,7 +264,7 @@ async def get_market_price_history(
     }
     
     # Fetch data from the collection
-    data_cursor = collection.find(query).sort("timestamp", -1)
+    data_cursor = collection.find(query).sort("timestamp", 1)
     
     result = []
     grouped_data = {}
@@ -289,10 +289,18 @@ async def get_market_price_history(
                 
                 for contract in market['contracts']:
                     if contractor_name is None or contract['contractName'] == contractor_name:
-                        if contract['contractName'] not in grouped_data[bucket_time]:
+                        if contract['contractName'] not in grouped_data[bucket_time]['contracts']:
                             grouped_data[bucket_time]['contracts'][contract['contractName']] = {
                                 "prices": [],
+                                "bestYes" : [-1],
+                                "bestNo" : [-1]
                             }
+                        if 'bestYes' in contract :
+                            grouped_data[bucket_time]['contracts'][contract['contractName']]['bestYes'].append(contract['bestYes'])
+                            
+                        if 'bestNo' in contract :
+                            grouped_data[bucket_time]['contracts'][contract['contractName']]['bestNo'].append(contract['bestNo'])
+                            
                         grouped_data[bucket_time]['contracts'][contract['contractName']]['prices'].append(contract['lastTradePrice'])
                         # Special logic for kalshi provider to calculate totalSharesTraded
                         if normalized_provider == 'kalshi':
@@ -312,12 +320,15 @@ async def get_market_price_history(
                 else :
                     grouped_data[bucket_time]['total_bet'] = total_bet
                     
+    # print(grouped_data)
     # Calculate the average price for each bucket
     for bucket_time, details in grouped_data.items():
         contracts = details['contracts']
         contractors = []
         for contractor, contract_data in contracts.items():
             prices = contract_data['prices']
+            bestYes = contract_data['bestYes']
+            bestNo = contract_data['bestNo']
 
             if value_type == 'average':
                 value = sum(prices) / len(prices)  # Calculate average price for this contractor in the interval
@@ -327,6 +338,8 @@ async def get_market_price_history(
             contractors.append({
                 "contractor_name": contractor,
                 "last_trade_price": value,
+                "bestYes" : bestYes[-1],
+                "bestNo" : bestNo[-1]
             })
 
         temp = {
